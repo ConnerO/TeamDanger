@@ -10,6 +10,7 @@ class CreateCheckLists < ActiveRecord::Migration
     	t.boolean :early_acceptance
     	t.date :tour_date
     	t.integer :ranking
+    	t.boolean :rec_letters
     	
       t.timestamps null: false
     end
