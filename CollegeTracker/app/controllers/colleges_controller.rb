@@ -2,7 +2,7 @@ class CollegesController < ApplicationController
 before_action :college_params, :only =>[:create,:update]
 
 def index
-	# @colleges = College.all
+	@colleges = College.all
 end
 
 def show
