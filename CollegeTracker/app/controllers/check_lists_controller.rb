@@ -42,7 +42,7 @@ end
 private
 
 def check_list_params
-	params.require(:check_list).permit(:deadline, :transcript, :sat, :act, :application, :tour_date, :early_acceptance, :ranking)
+	params.require(:check_list).permit(:deadline, :transcript, :sat, :act, :application, :tour_date, :early_acceptance, :ranking, :rec_letters)
 end
 
 end

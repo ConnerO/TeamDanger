@@ -6,10 +6,9 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   resources :users
-  resources :rec_letters
   resources :check_lists
   resources :colleges
-  
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
