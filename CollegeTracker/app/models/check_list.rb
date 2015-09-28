@@ -1,5 +1,5 @@
 class CheckList < ActiveRecord::Base
 	belongs_to :college
 	belongs_to :user
-	has_one :rec_letter
+	has_many :rec_letters
 end
