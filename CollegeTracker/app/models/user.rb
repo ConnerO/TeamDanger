@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   authenticates_with_sorcery!
 
   has_many :colleges
-  has_many :check_lists, through :colleges
+  has_many :check_lists, through: :colleges
   has_many :rec_letters
 
 
