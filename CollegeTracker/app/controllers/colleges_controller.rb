@@ -2,19 +2,19 @@ class CollegesController < ApplicationController
 before_action :college_params, :only =>[:create,:update]
 
 def index
-	@colleges = college.all
+	@colleges = College.all
 end
 
 def show
- 	@college = college.find(params[:id])
+ 	@college = College.find(params[:id])
 end
 
 def new
-	@college = college.new
+	@college = College.new
 end
 
 def create
-	@college = college.new(college_params)
+	@college = College.new(college_params)
 
 	if @college.save
 		redirect_to @college
@@ -22,11 +22,11 @@ def create
 end
 
 def edit
-	@college = college.find(params[:id])
+	@college = College.find(params[:id])
 end
 
 def update
-	@college = college.find(params[:id])
+	@college = College.find(params[:id])
 
 	if @college.update(college_params)
 		redirect_to @college
@@ -34,7 +34,7 @@ def update
 end
 
 def destroy
-	@college = college.find(params[:id])
+	@college = College.find(params[:id])
 	@college.destroy
 	redirect_to '/colleges'
 end
