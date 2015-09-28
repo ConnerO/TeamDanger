@@ -2,19 +2,19 @@ class CheckListsController < ApplicationController
 before_action :check_list_params, :only =>[:create,:update]
 
 def index
-	@check_lists = check_list.all
+	@check_lists = Check_list.all
 end
 
 def show
- 	@check_list = check_list.find(params[:id])
+ 	@check_list = Check_list.find(params[:id])
 end
 
 def new
-	@check_list = check_list.new
+	@check_list = Check_list.new
 end
 
 def create
-	@check_list = check_list.new(check_list_params)
+	@check_list = Check_list.new(check_list_params)
 
 	if @check_list.save
 		redirect_to @check_list
@@ -22,11 +22,11 @@ def create
 end
 
 def edit
-	@check_list = check_list.find(params[:id])
+	@check_list = Check_list.find(params[:id])
 end
 
 def update
-	@check_list = check_list.find(params[:id])
+	@check_list = Check_list.find(params[:id])
 
 	if @check_list.update(check_list_params)
 		redirect_to @check_list
@@ -34,7 +34,7 @@ def update
 end
 
 def destroy
-	@check_list = check_list.find(params[:id])
+	@check_list = Check_list.find(params[:id])
 	@check_list.destroy
 	redirect_to '/check_lists'
 end
