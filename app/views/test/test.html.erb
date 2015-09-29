@@ -1,0 +1,37 @@
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+</head>
+<body>
+    <h1>This is a test</h1>
+    <div id="div1"></div>
+    <select class="popdown" id="pop" name="cars" >
+    <% @colleges.each do |college| %>
+        <option class="college-choice"><%= college.name %></option>
+    <% end %>
+   </select>
+   <script>
+    console.log("Tesssst");
+
+    $("#pop").on('input',function(){
+        console.log("YOLO")
+         // $(".popdown").hide();
+        var link = document.createElement("a");
+        var divy = document.createElement("div");
+        var text = document.createTextNode(this.value);
+        var formy = document.createElement("form");
+        link.appendChild(text);
+        $("a").attr("href","");
+
+        var mainDiv = document.getElementById("div1");
+        formy.appendChild(divy);
+        mainDiv.appendChild(formy);
+        // formy.appendChild()
+        divy.appendChild(link);
+            // <form class="yes" name="form_item" action="/refactor" method="post">
+            $("form").attr("method","post");
+
+    })
+
+   </script>
+</body>
+

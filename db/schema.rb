@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150928191007) do
+ActiveRecord::Schema.define(version: 20150929163020) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,7 +29,12 @@ ActiveRecord::Schema.define(version: 20150928191007) do
     t.boolean  "rec_letters"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.integer  "user_id"
+    t.integer  "college_id"
   end
+
+  add_index "check_lists", ["college_id"], name: "index_check_lists_on_college_id", using: :btree
+  add_index "check_lists", ["user_id"], name: "index_check_lists_on_user_id", using: :btree
 
   create_table "colleges", force: :cascade do |t|
     t.string   "name",          null: false
@@ -69,4 +74,6 @@ ActiveRecord::Schema.define(version: 20150928191007) do
   add_index "users", ["remember_me_token"], name: "index_users_on_remember_me_token", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", using: :btree
 
+  add_foreign_key "check_lists", "colleges"
+  add_foreign_key "check_lists", "users"
 end
