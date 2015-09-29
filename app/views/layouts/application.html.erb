@@ -11,8 +11,8 @@
 	<div id="nav">
     <% if current_user %>
       <%= link_to "College", test_path %> |
-      <%= link_to "Checklist", index_check_list_path %> |
-      <%= link_to "Add to Checklist", new_check_list_path %> |
+      <%= link_to "Checklist", index_check_lists_path %> |
+      <%= link_to "Add to Checklist", new_check_lists_path %> |
       <%= link_to "Logout", :logout, method: :post %>
     <% else %>
       <%= link_to "Register", new_user_path %> |

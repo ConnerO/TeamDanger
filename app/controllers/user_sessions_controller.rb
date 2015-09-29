@@ -1,10 +1,10 @@
 class UserSessionsController < ApplicationController
- 	@user = login(params[:username], params[:password], params[:remember])
+	
  	def new
 	end
 
 	def create
-		user = login(params[:email], params[:password])
+		user = login(params[:email], params[:password], params[:remember])
 	   	if user
 	    	redirect_back_or_to root_url, notice: 'Login successful'
 	   	else
