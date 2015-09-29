@@ -20,6 +20,23 @@ body {
 	background-image: url(http://7-themes.com/data_images/out/54/6956386-great-waterfall-wallpaper.jpg);
 	background-size: cover;
 	background-repeat: no-repeat;
-	color: beige;
 	text-shadow: 1px, 1px  black;
+}
+
+.container {
+	display: inline-block;
+	clear: both;
+	border: 1px solid orange;
+	padding: 1%;
+}
+
+li {
+	list-style-type: none;
+}
+
+.list {
+	width: 100%;
+	clear: both;
+	border: 1px solid orange;
+	margin: 1%;
 }

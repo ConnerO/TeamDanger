@@ -12,9 +12,9 @@
 
 <div id="home">
 	<form>
-		<input type="text" name="email">
-		<input type="text" name="password">
-		<input type="submit" value="Submit">
+		<input type="email" name="email" placeholder="email">
+		<input type="password" placeholder="password">
+		<input type="submit" value="Log In">
 	</form>
 
 </div>
@@ -25,19 +25,22 @@
 </div>
 
 <div id="register">
-	<form>
+	<form class="container">
 		<!-- Socery Section -->
 			<!-- Field: email -->
 			<!-- Field: password -->
-		<input type="text" name="first_name">
-		<input type="text" name="last_name">
-		<input type="text" name="grad_date">
-		<input type="text" name="application">
-		<input type="text" name="gender">
-		<input type="text" name="city">
-		<input type="text" name="state">
-		<input type="submit" value="Submit">
+		<ul>
+			<li><input type="text" class="list" name="first_name" placeholder="First name"></li>
+			<li><input type="text" class="list" name="last_name" placeholder="Last name"></li>
+			<li><input type="date" class="list" name="grad_date" placeholder="Graduation date"></li>
+			<li><input type="date" class="list" name="application" placeholder="Application due date"></li>
+			<li><input type="text" class="list" name="gender" placeholder="Gender"></li>
+			<li><input type="text" class="list" name="city" placeholder="City"></li>
+			<li><input type="text" class="list" name="state" placeholder="State"></li>
+			<li><input type="submit" value="Submit"></li>
+		</ul>
 	</form>
+
 </div>
 
 <footer>
