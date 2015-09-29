@@ -1,16 +1,31 @@
 Rails.application.routes.draw do
+  get 'password_resets/create'
+
+  get 'password_resets/edit'
+
+  get 'password_resets/update'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
+  get 'sessions/new'
+
+  get 'sessions/create'
+
+  get 'sessions/destroy'
+
   get 'test/' => 'test#test'
   root 'welcome#index'
 
   resources :users
   resources :check_lists
   resources :colleges
+  resources :password_resets
   
-
+  resources :sessions
+  get 'login' => 'sessions#new', :as => :login
+  post 'logout' => 'sessions#destroy', :as => :logout
     
 
   # Example of named route that can be invoked with purchase_url(id: product.id)

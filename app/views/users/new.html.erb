@@ -1,12 +1,20 @@
 <% if @user.errors.present? %>
 	<p><%= @user.errors.full_messages.first %></p>
 <% end %>
+
 <h1>Sign Up for College Tracker</h1>
+
 <br>
 <%= form_for @user do |f| %>
 	<%= f.text_field :first_name, :placeholder => "First Name" %>
 	<%= f.text_field :last_name, :placeholder => "Last Name" %>
 	<%= f.text_field :email, :placeholder => "E-mail" %>
+	<p>Graduation Date<%= f.date_field :grad_date, :placeholder => "Graduation Date" %></p>
+	<p>Application Year<%= f.number_field :app_year, :placeholder => "Application" %></p>
+	<%= f.text_field :gender, :placeholder => "Gender" %>
+	<%= f.text_field :city, :placeholder => "City" %>
+	<%= f.text_field :state, :placeholder => "State" %>
+			
 	<div class="field">
 		<br>
    <%= f.label :password %><br />
@@ -20,4 +28,4 @@
 	</div>
 
 	<%= f.submit "Submit" %>
-	<% end %>
+<% end %>
