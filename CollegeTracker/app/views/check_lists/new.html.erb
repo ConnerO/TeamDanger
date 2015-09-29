@@ -1,0 +1,23 @@
+<% if @check_list.errors.present? %>
+	<p><%= @check_list.errors.full_messages.first %></p>
+<% end %>
+<h1>Create New Checklist</h1>
+<br>
+<p>Welcome <%= @current_user.first_name %> with ID of <%= @current_user.id %></p>
+<% @check_list.user_id = @current_user.id %>
+<p>The user_id for this checklist is <%= @check_list.user_id %></p>
+<p>This check list is for <%= @college.id %></p>
+<%= form_for @check_list do |f| %>
+	<%= f.date_field :deadline, :placeholder => "Deadline" %>
+	<%= f.text_field :transcript, :placeholder => "Transcript sent (true or false)" %>
+	<%= f.text_field :essay, :placeholder => "Essay done(true or false)" %>
+	<%= f.text_field :sat, :placeholder => "S.A.T. sent (true or false)" %>
+	<%= f.text_field :act, :placeholder => "A.C.T. sent (true or false)" %>
+	<%= f.text_field :rec_letters, :placeholder => "Letters of recommendation done (true or false)" %>
+	<%= f.text_field :application, :placeholder => "Application sent (true or false)" %>
+	<%= f.text_field :early_acceptance, :placeholder => "Early Acceptance (true or false)" %>
+	<%= f.date_field :tour_date, :placeholder => "College Tour Date" %>
+	<%= f.number_field :ranking, :placeholder => "Ranking" %>
+	<%= f.submit "Submit" %>
+<% end %>
+
