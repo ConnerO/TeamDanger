@@ -9,13 +9,13 @@
 <p>This check list is for <%= @colleges(@check_list.college_id).name %></p>
 <%= form_for @check_list do |f| %>
 	<%= f.date_field :deadline, :placeholder => "Deadline" %>
-	<%= f.text_field :transcript, :placeholder => "Transcript sent (true or false)" %>
-	<%= f.text_field :essay, :placeholder => "Essay done(true or false)" %>
-	<%= f.text_field :sat, :placeholder => "S.A.T. sent (true or false)" %>
-	<%= f.text_field :act, :placeholder => "A.C.T. sent (true or false)" %>
-	<%= f.text_field :rec_letters, :placeholder => "Letters of recommendation done (true or false)" %>
-	<%= f.text_field :application, :placeholder => "Application sent (true or false)" %>
-	<%= f.text_field :early_acceptance, :placeholder => "Early Acceptance (true or false)" %>
+	<%= f.text_field :transcript, :placeholder => "Transcript?(true/false)" %>
+	<%= f.text_field :essay, :placeholder => "Essay?(true/false)" %>
+	<%= f.text_field :sat, :placeholder => "S.A.T.?(true/false)" %>
+	<%= f.text_field :act, :placeholder => "A.C.T.?(true/false)" %>
+	<%= f.text_field :rec_letters, :placeholder => "Rec letters?(true/false)" %>
+	<%= f.text_field :application, :placeholder => "Application?(true/false)" %>
+	<%= f.text_field :early_acceptance, :placeholder => "Early Accept?(true/false)" %>
 	<%= f.date_field :tour_date, :placeholder => "College Tour Date" %>
 	<%= f.number_field :ranking, :placeholder => "Ranking" %>
 	<%= f.submit "Submit" %>
