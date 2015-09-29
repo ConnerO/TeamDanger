@@ -1,27 +1,27 @@
 class CheckListsController < ApplicationController
 
-before_filter :require_login
+# before_filter :require_login
 
 	def index
-		@check_lists = Check_list.all
+		@check_lists = CheckList.all
 		@colleges = College.all
 		current_user
 	end
 
 	def show
-	 	@check_list = Check_list.find(params[:id])
+	 	@check_list = CheckList.find(params[:id])
 	 	@colleges = College.all
 	 	current_user
 	end
 
 	def new
-		@check_list = Check_list.new
+		@check_list = CheckList.new
 		@colleges = College.all
 		current_user
 	end
 
 	def create
-		@check_list = Check_list.new(check_list_params)
+		@check_list = CheckList.new(check_list_params)
 
 		if @check_list.save
 			redirect_to @check_list
@@ -29,11 +29,11 @@ before_filter :require_login
 	end
 
 	def edit
-		@check_list = Check_list.find(params[:id])
+		@check_list = CheckList.find(params[:id])
 	end
 
 	def update
-		@check_list = Check_list.find(params[:id])
+		@check_list = CheckList.find(params[:id])
 
 		if @check_list.update(check_list_params)
 			redirect_to @check_list
@@ -41,7 +41,7 @@ before_filter :require_login
 	end
 
 	def destroy
-		@check_list = Check_list.find(params[:id])
+		@check_list = CheckList.find(params[:id])
 		@check_list.destroy
 		redirect_to '/check_lists'
 	end

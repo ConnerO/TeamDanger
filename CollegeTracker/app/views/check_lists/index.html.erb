@@ -3,7 +3,7 @@
 	<% @check_lists.each do |x| %>
 	<li>
 		<p>Entry number: <%= x.id %></p>
-		<p>College: <%= x.college_id %></p>
+		<p>College: <%= @colleges(x.college_id).name %></p>
 		<p>Deadline: <%= x.deadline %></p>
 		<p>Transcript sent? <%= x.transcript %></p>
 		<p>Essay done? <%= x.essay %></p>
