@@ -6,7 +6,7 @@
 <p>Welcome <%= @current_user.first_name %> with ID of <%= @current_user.id %></p>
 <% @check_list.user_id = @current_user.id %>
 <p>The user_id for this checklist is <%= @check_list.user_id %></p>
-<p>This check list is for <%= @college.id %></p>
+<p>This check list is for <%= @colleges(@check_list.college_id).name %></p>
 <%= form_for @check_list do |f| %>
 	<%= f.date_field :deadline, :placeholder => "Deadline" %>
 	<%= f.text_field :transcript, :placeholder => "Transcript sent (true or false)" %>

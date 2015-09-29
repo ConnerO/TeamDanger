@@ -1,7 +1,8 @@
 <h1>Successfully added your check list to our database</h1>
 <br>
 	<p>Entry number: <%= @check_list.id %></p>
-	<p>College: <%= @check_list.college_id %></p>
+	<p>Student ID: <%= @check_list.user_id %></p>
+	<p>College: <%= @colleges(check_list.college_id).name %></p>
 	<p>Deadline: <%= @check_list.deadline %></p>
 	<p>Transcript sent? <%= @check_list.transcript %></p>
 	<p>Essay done? <%= @check_list.essay %></p>
