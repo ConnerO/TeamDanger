@@ -1,4 +1,5 @@
 class UserSessionsController < ApplicationController
+ 	@user = login(params[:username], params[:password], params[:remember])
  	def new
 	end
 
