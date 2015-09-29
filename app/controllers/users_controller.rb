@@ -18,6 +18,8 @@ def create
 
 	if @user.save
 		redirect_to @user
+	else
+		render 'new'
 	end
 end
 
@@ -42,7 +44,7 @@ end
 private
 
 def user_params
-	params.require(:user).permit(:email, :password, :first_name, :last_name, :grad_date, :application_year, :gender, :city, :state)
+	params.require(:user).permit(:email, :password, :password_confirmation, :first_name, :last_name, :grad_date, :application_year, :gender, :city, :state)
 end
 
 end
