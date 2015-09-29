@@ -1,19 +1,24 @@
 <h1>Check Lists</h1>
-<ul>
-	<% @check_lists.each do |x| %>
-	<li>
-		<p>Entry number: <%= x.id %></p>
-		<p>College: <%= @colleges(x.college_id).name %></p>
-		<p>Deadline: <%= x.deadline %></p>
-		<p>Transcript sent? <%= x.transcript %></p>
-		<p>Essay done? <%= x.essay %></p>
-		<p>S.A.T. sent?<%= x.sat %></p>
-		<p>A.C.T. sent?<%= x.act %></p>
-		<p>Letters of recommendation done?<%= x.rec_letters %></p>
-		<p>Application sent? <%= x.application %></p>
-		<p>Going for Early Acceptance?<%= x.early_acceptance %></p>
-		<p>Tour Date: <%= x.tour_date %></p>
-		<p>Ranking: <%= x.ranking %></p>
-	</li>
+<% if @check_lists == nil %>
+	<p>No check lists yet!</p>
+	<% else %>
+		<ul>
+			<% @check_lists.each do |x| %>
+			<li>
+				<p>Entry number: <%= x.id %></p>
+				<% college = @colleges.find(x.id) %>
+				<p>College: <%= college.name %></p>
+				<p>Deadline: <%= x.deadline %></p>
+				<p>Transcript sent? <%= x.transcript %></p>
+				<p>Essay done? <%= x.essay %></p>
+				<p>S.A.T. sent?<%= x.sat %></p>
+				<p>A.C.T. sent?<%= x.act %></p>
+				<p>Letters of recommendation done?<%= x.rec_letters %></p>
+				<p>Application sent? <%= x.application %></p>
+				<p>Going for Early Acceptance?<%= x.early_acceptance %></p>
+				<p>Tour Date: <%= x.tour_date %></p>
+				<p>Ranking: <%= x.ranking %></p>
+			</li>
+			<% end %>
+		</ul>
 	<% end %>
-</ul> 

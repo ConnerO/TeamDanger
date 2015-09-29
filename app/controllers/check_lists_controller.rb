@@ -1,6 +1,6 @@
 class CheckListsController < ApplicationController
 
-before_filter :require_login
+# before_filter :require_login
 
 	def index
 		@check_lists = CheckList.all
