@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'user_sessions/new'
+
+  get 'user_sessions/create'
+
+  get 'user_sessions/destroy'
+
   get 'password_resets/create'
 
   get 'password_resets/edit'
@@ -23,9 +29,9 @@ Rails.application.routes.draw do
   resources :colleges
   resources :password_resets
   
-  resources :sessions
-  get 'login' => 'sessions#new', :as => :login
-  post 'logout' => 'sessions#destroy', :as => :logout
+  resources :user_sessions
+  get 'login' => 'user_sessions#new', :as => :login
+  post 'logout' => 'user_sessions#destroy', :as => :logout
     
 
   # Example of named route that can be invoked with purchase_url(id: product.id)

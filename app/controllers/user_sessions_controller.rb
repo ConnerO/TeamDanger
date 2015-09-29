@@ -1,6 +1,5 @@
-class SessionsController < ApplicationController
-	
-	def new
+class UserSessionsController < ApplicationController
+ 	def new
 	end
 
 	def create
@@ -17,5 +16,4 @@ class SessionsController < ApplicationController
 		logout
 		redirect_to root_url, notice: 'Logged out!'
 	end
-
 end
