@@ -17,17 +17,32 @@
 @import "bootstrap";
 
 body {
+
+	text-shadow: 1px, 1px  black;
+}
+
+div.home {
+	height: 622px;
 	background-image: url(http://7-themes.com/data_images/out/54/6956386-great-waterfall-wallpaper.jpg);
 	background-size: cover;
 	background-repeat: no-repeat;
-	text-shadow: 1px, 1px  black;
+}
+
+div.about {
+	height: 622px;
+	background-color: #99cccc;
+}
+
+div.register {
+	height: 622px;
+	background-color: #669966;
 }
 
 .container {
 	display: inline-block;
 	clear: both;
 	border: 1px solid orange;
-	padding: 1%;
+	padding: px;
 }
 
 li {
@@ -38,5 +53,5 @@ li {
 	width: 100%;
 	clear: both;
 	border: 1px solid orange;
-	margin: 1%;
+	margin: 1px;
 }
