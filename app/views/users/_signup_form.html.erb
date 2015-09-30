@@ -1,0 +1,36 @@
+<% if @user.errors.present? %>
+	<p><%= @user.errors.full_messages.first %></p>
+<% end %>
+
+
+
+<div class="row container">
+	<div class="col-md-4">
+	</div>
+	<ul class="col-md-4">
+		<h1>Sign Up</h1>
+		<%= form_for @user do |f| %>
+			<li class="list"> <%= f.text_field :first_name, :placeholder => "First Name" %> </li>
+			<li class="list"> <%= f.text_field :last_name, :placeholder => "Last Name" %> </li>
+			<li class="list"> <%= f.text_field :email, :placeholder => "E-mail" %> </li>
+			<li class="list"> <p>Graduation Date:</p> <%= f.date_field :grad_date, :placeholder => "Graduation Date" %> </li>
+			<li class="list"> <%= f.text_field :gender, :placeholder => "Gender" %> </li>
+			<li class="list"> <%= f.text_field :city, :placeholder => "City" %> </li>
+			<li class="list"> <%= f.text_field :state, :placeholder => "State" %> </li>
+					
+			<div class="field">
+				<br>
+		   		<li class="list"> <%= f.label :password %> </li>
+				<li class="list"> <%= f.password_field :password %> </li>
+			</div>
+
+			<div class="field">
+		  		<li class="list"> <%= f.label :password_confirmation %> </li>
+		  		<li class="list"> <%= f.password_field :password_confirmation %> </li>
+			</div>
+			<%= f.submit "Submit" %>
+		<% end %>	
+	</ul>
+	<div class="col-md-4">
+	</div>
+</div>
