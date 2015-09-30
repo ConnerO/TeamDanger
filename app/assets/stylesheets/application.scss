@@ -17,9 +17,52 @@
 @import "bootstrap";
 
 body {
+	font-famly: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	text-shadow: 1px, 1px  black;
 	background-image: url(http://7-themes.com/data_images/out/54/6956386-great-waterfall-wallpaper.jpg);
 	background-size: cover;
 	background-repeat: no-repeat;
-	color: beige;
-	text-shadow: 1px, 1px  black;
+}
+
+p {	
+	font-weight: bold;
+	font-famly: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+div.home {
+	height: 622px;
+
+}
+
+div.about {
+	height: 622px;
+	background-color: rgb(255, 142, 180);
+}
+
+div.register {
+	height: 622px;
+	background-color: #669966;
+}
+
+
+
+li {
+	list-style-type: none;
+}
+
+li input {
+    width: 300px;
+    padding: 10px;
+    font-size: 18px;
+    margin-bottom: 6px;
+    border-radius: 5px;
+}
+
+.list {
+	width: 100%;
+	clear: both;
+	margin: 1px;
+}
+input, select {
+	box-sizing:border-box;
 }
