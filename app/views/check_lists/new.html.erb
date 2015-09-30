@@ -7,8 +7,7 @@
 <% @check_list.user_id = @current_user.id %>
 <p>The user_id for this checklist is <%= @check_list.user_id %></p>
 <% @check_list.college_id = 1 %>
-<% college = @colleges.find(@check_list.college_id) %>
-<p>This check list is for <%= college.name %></p>
+
 <div class = "container">
 	<%= form_for @check_list do |f| %>
 	<div class = "row">
