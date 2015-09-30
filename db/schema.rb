@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20150929163020) do
     t.boolean  "early_acceptance"
     t.date     "tour_date"
     t.integer  "ranking"
+    t.boolean  "rec_letters"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
     t.integer  "user_id"
@@ -47,14 +48,6 @@ ActiveRecord::Schema.define(version: 20150929163020) do
     t.text     "comments"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
-  end
-
-  create_table "rec_letters", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.string   "title",      null: false
-    t.boolean  "complete"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
