@@ -11,26 +11,48 @@
    </select>
    <script>
     console.log("Tesssst");
-
+    var globalVarTest = "";
     $("#pop").on('input',function(){
-        console.log("YOLO")
-         // $(".popdown").hide();
+        // $(".popdown").hide();
         var link = document.createElement("a");
         var divy = document.createElement("div");
-        var text = document.createTextNode(this.value);
+        var inputText = document.createElement("input");
+        var text = this.value;
+        var textNode = document.createTextNode(text);
         var formy = document.createElement("form");
-        link.appendChild(text);
-        $("a").attr("href","");
-
+        link.appendChild(textNode);
         var mainDiv = document.getElementById("div1");
         formy.appendChild(divy);
-        mainDiv.appendChild(formy);
-        // formy.appendChild()
+        mainDiv.appendChild(divy);
         divy.appendChild(link);
-            // <form class="yes" name="form_item" action="/refactor" method="post">
-            $("form").attr("method","post");
+        divy.appendChild(inputText);
+       
+        var textClass = "." + text;
+        textClass = returnNoSpaces(textClass);
+        var aTestClass = returnNoSpaces(text);
+        console.log(text);
+        var hrefValue = "/colleges/name/";
+        hrefValue += text;
 
-    })
+        $("a").attr("href",hrefValue)
+        $(link).attr("class",aTestClass);
+        $(inputText).val(text);
+        $(inputText).css("color","red");
+        $(inputText).hide();
+    });
+
+    function returnNoSpaces(word)
+    {
+        var newWord = "";
+        for(var i = 0;i < word.length; i ++)
+        {
+            if(word[i] !== ' ')
+            {   
+                newWord += word[i];  
+            }
+        }
+        return newWord;
+    }
 
    </script>
 </body>
