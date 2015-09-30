@@ -22,6 +22,9 @@ Rails.application.routes.draw do
   get 'sessions/destroy'
 
   get 'test/' => 'test#test'
+  get 'test/trywhatever' => 'test#whatup'
+  get 'test/whatup' => 'colleges#index'
+  get 'colleges/name/:college' => 'colleges#show'
   root 'welcome#index'
 
   resources :users
