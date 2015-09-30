@@ -7,6 +7,6 @@ class User < ActiveRecord::Base
   validates :password, confirmation: true, if: -> { new_record? || changes["password"] }
   validates :password_confirmation, presence: true, if: -> { new_record? || changes["password"] }
 
-  validates :email, uniqueness: true
+  validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }, uniqueness: true
 
 end
