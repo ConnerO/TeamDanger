@@ -4,14 +4,14 @@
 <body>
     <h1>This is a test</h1>
     <div id="div1"></div>
-    <select class="popdown" id="pop" name="cars" >
+    <select class="popdown" id="pop">
     <% @colleges.each do |college| %>
         <option class="college-choice"><%= college.name %></option>
     <% end %>
    </select>
    <script>
     console.log("Tesssst");
-    var globalVarTest = "";
+    document.getElementById("pop").selectedIndex = "-1";
     $("#pop").on('input',function(){
         // $(".popdown").hide();
         var link = document.createElement("a");
