@@ -6,19 +6,39 @@
 <p>Welcome <%= @current_user.first_name %> with ID of <%= @current_user.id %></p>
 <% @check_list.user_id = @current_user.id %>
 <p>The user_id for this checklist is <%= @check_list.user_id %></p>
-<% college = @colleges.find(check_list.college_id) %>
+<% @check_list.college_id = 1 %>
+<% college = @colleges.find(@check_list.college_id) %>
 <p>This check list is for <%= college.name %></p>
-<%= form_for @check_list do |f| %>
-	<%= f.date_field :deadline, :placeholder => "Deadline" %>
-	<%= f.text_field :transcript, :placeholder => "Transcript?(true/false)" %>
-	<%= f.text_field :essay, :placeholder => "Essay?(true/false)" %>
-	<%= f.text_field :sat, :placeholder => "S.A.T.?(true/false)" %>
-	<%= f.text_field :act, :placeholder => "A.C.T.?(true/false)" %>
-	<%= f.text_field :rec_letters, :placeholder => "Rec letters?(true/false)" %>
-	<%= f.text_field :application, :placeholder => "Application?(true/false)" %>
-	<%= f.text_field :early_acceptance, :placeholder => "Early Accept?(true/false)" %>
-	<%= f.date_field :tour_date, :placeholder => "College Tour Date" %>
-	<%= f.number_field :ranking, :placeholder => "Ranking" %>
-	<%= f.submit "Submit" %>
+<div class = "container">
+	<%= form_for @check_list do |f| %>
+	<div class = "row">
+		<div class="col-xs-2">Deadline</div>
+		<div class="col-xs-2"><%= f.date_field :deadline, :placeholder => "Deadline" %></div>
+		<div class="col-xs-2">Transcript?</div>
+		<div class="col-xs-2"><%= f.text_field :transcript, :placeholder => "True or False" %></div>
+		<div class="col-xs-2">Essay?</div>
+		<div class="col-xs-2"><%= f.text_field :essay, :placeholder => "True or False" %></div>
+	</div>
+	<div class="row">
+		<div class="col-xs-2">S.A.T.?</div>
+		<div class="col-xs-2"><%= f.text_field :sat, :placeholder => "True or False" %></div>
+		<div class="col-xs-2">A.C.T.?</div>
+		<div class="col-xs-2"><%= f.text_field :act, :placeholder => "True or False" %></div>
+		<div class="col-xs-2">Applicaiton?</div>
+		<div class="col-xs-2"><%= f.text_field :application, :placeholder => "True or False" %></div>
+	</div>
+	<div class="row">
+		<div class="col-xs-2">College Tour Date</div>
+		<div class="col-xs-2"><%= f.date_field :tour_date, :placeholder => "College Tour Date" %></div>
+		<div class="col-xs-2">Rec Letters?</div>
+		<div class="col-xs-2"><%= f.text_field :rec_letters, :placeholder => "True or False" %></div>
+		<div class="col-xs-2">Early Accept?</div>
+		<div class="col-xs-2"><%= f.text_field :early_acceptance, :placeholder => "True or False" %></div>
+	</div>
+	<div class="row">
+		<div class="col-xs-2">Ranking</div>
+		<div class="col-xs-2"><%= f.number_field :ranking, :placeholder => "Ranking" %></div>
+		<div class="col-xs-2"><%= f.submit "Submit" %></div>
+</div>
 <% end %>
 
