@@ -1,0 +1,53 @@
+ 
+ 	<ul>
+ 		<% @colleges.each do |college| %>
+	 		<% @check_list.college_id = college.id %>
+	 		<% @check_list.user_id = 1 %>
+	    
+	    <li>  
+        <% college_id = @check_list.college_id %>
+        <% college_name = college.name %>
+        <h1>Checklist for <%= college_name %></h1>
+	        <div class = "container">    
+	        	<%= form_for @check_list do |f| %>
+	            <div class = "row">
+	                <div class="col-xs-2">Deadline</div>
+	                <div class="col-xs-2"><%= f.date_field :deadline, :placeholder => "Deadline" %></div>
+	                <div class="col-xs-2">Transcript?</div>
+	                <div class="col-xs-2"><%= f.text_field :transcript, :placeholder => "True or False" %></div>
+	                <div class="col-xs-2">Essay?</div>
+	                <div class="col-xs-2"><%= f.text_field :essay, :placeholder => "True or False" %></div>
+	            </div>
+	            <div class="row">
+	                <div class="col-xs-2">S.A.T.?</div>
+	                <div class="col-xs-2"><%= f.text_field :sat, :placeholder => "True or False" %></div>
+	                <div class="col-xs-2">A.C.T.?</div>
+	                <div class="col-xs-2"><%= f.text_field :act, :placeholder => "True or False" %></div>
+	                <div class="col-xs-2">Applicaiton?</div>
+	                <div class="col-xs-2"><%= f.text_field :application, :placeholder => "True or False" %></div>
+	            </div>
+	            <div class="row">
+	                <div class="col-xs-2">College Tour Date</div>
+	                <div class="col-xs-2"><%= f.date_field :tour_date, :placeholder => "College Tour Date" %></div>
+	                <div class="col-xs-2">Rec Letters?</div>
+	                <div class="col-xs-2"><%= f.text_field :rec_letters, :placeholder => "True or False" %></div>
+	                <div class="col-xs-2">Early Accept?</div>
+	                <div class="col-xs-2"><%= f.text_field :early_acceptance, :placeholder => "True or False" %></div>
+	            </div>
+	            <div class="row">
+	                <div class="col-xs-2">Ranking</div>
+	                <div class="col-xs-2"><%= f.number_field :ranking, :placeholder => "Ranking" %></div>
+	                <div class="col-xs-2"><%= f.submit "Submit" %></div>
+	            </div>
+	    			<% end %>
+	    		</div>
+	    </li>
+    <% end %>
+</ul>
+<script>
+	// $(".container").hide();
+
+
+
+
+</script>
