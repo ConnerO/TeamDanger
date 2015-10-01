@@ -18,19 +18,36 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.navbar-brand {
+/*.navbar-brand {
     max-width:100px;
     margin-right: 10%;
     border-radius: 50%;
     object-fit: cover;
-}
+}*/
 
-.home, .register, .login, .college, .checklist, .add_checklist, .logout {
+.home, .college, .checklist, .add_checklist {
 	font-size: 1.2em;
 	font-family: 'Open Sans', sans-serif;
 	color: #2496D4;
 	border-color: #2496D4;
 	margin-right: 1.5%;
+}
+
+.register {
+	float: right;
+	font-size: 1.2em;
+	font-family: 'Open Sans', sans-serif;
+	color: #2496D4;
+	border-color: #2496D4;
+	margin-right: 1.5%;
+}
+
+.login, .logout {
+	float: right;
+	font-size: 1.2em;
+	font-family: 'Open Sans', sans-serif;
+	color: #2496D4;
+	border-color: #2496D4;
 }
 
 body {
@@ -65,6 +82,7 @@ div.hero {
 	/*background-color: rgba(0,0,0,.4);*/
 	padding: 70px;
 	font-size: 3em;
+	text-shadow: 1px 1px 1px #000, 3px 3px 5px black;
 }
 
 div.about {
@@ -84,8 +102,9 @@ div.about {
 	text-align: center;
 	padding: 20px;
 	font-size: 2em;
-	font-family: 'Lobster', cursive;
-	text-shadow: 1px, 1px  black;
+	font-family: 'Open Sans', sans-serif;
+	letter-spacing: 0.4em;
+	
 }
 
 div.register {
@@ -128,4 +147,4 @@ input, select {
 .fieldWidth {
 	max-width: 100%;
 }
->>>>>>> 02238ec0dbfc12f746382194f12df27f1a6761bc
+
