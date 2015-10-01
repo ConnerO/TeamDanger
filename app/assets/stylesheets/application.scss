@@ -27,6 +27,15 @@
 
 .navbar {
 	margin: 0px;
+	border-color: none;
+}
+
+.navbar-default {
+	border-color: none;
+}
+
+.alerts {
+	background-color: #f8f8f8;
 }
 
 .home, .college, .checklist, .add_checklist {
@@ -37,12 +46,21 @@
 	margin-right: 1.5%;
 }
 
-.home, .register, .login, .college, .checklist, .add_checklist, .logout {
+.register {
+	float: right;
 	font-size: 1.2em;
 	font-family: 'Open Sans', sans-serif;
 	color: #2496D4;
 	border-color: #2496D4;
 	margin-right: 1.5%;
+}
+
+.login, .logout {
+	float: right;
+	font-size: 1.2em;
+	font-family: 'Open Sans', sans-serif;
+	color: #2496D4;
+	border-color: #2496D4;
 }
 
 body {
@@ -54,6 +72,7 @@ body {
 p {	
 	font-weight: bold;
 	font-family: 'Open Sans', sans-serif;
+	margin-bottom: 0px;
 }
 
 div.home {
@@ -74,9 +93,9 @@ div.hero {
 #middleHero {
 	color: white;
 	text-align: center;
-	background-color: rgba(0,0,0,.4);
 	padding: 70px;
 	font-size: 3em;
+	text-shadow: 1px 1px 1px #000, 3px 3px 5px black;
 }
 
 div.about {
