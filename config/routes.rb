@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   get 'test/' => 'test#test'
   get 'test/trywhatever' => 'test#whatup'
   get 'test/whatup' => 'colleges#index'
-  get 'colleges/name/:college' => 'colleges#show'
+  get 'colleges/name/:college' => 'colleges#show', :constraints => { :college => /[^\/]+/ }
   root 'welcome#index'
 
   resources :users

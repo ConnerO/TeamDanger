@@ -3,6 +3,8 @@
 </head>
 <body>
     <h1>This is a test</h1>
+    <p>Welcome <%= @current_user.first_name %> with ID of <%= @current_user.id %></p>
+    <% @check_list.user_id = @current_user.id %>
     <div id="div1"></div>
     <select class="popdown" id="pop">
     <% @colleges.each do |college| %>
@@ -12,14 +14,11 @@
 
     <ul>
         <% @colleges.each do |college| %>
-            <% @check_list.college_id = college.id %>
-            <% @check_list.user_id = 1 %>
-        
         <li>  
-        <% college_id = @check_list.college_id %>
         <% college_name = college.name %>
         <div class = "container <%= college_name %>">    
             <h1>Checklist for <%= college_name %></h1>
+            <h2>Current user id is <%= current_user.id %></h2>
                 <%= form_for @check_list do |f| %>
                 <div class = "row">
                     <div class="col-xs-2">Deadline</div>
@@ -48,6 +47,9 @@
                 <div class="row">
                     <div class="col-xs-2">Ranking</div>
                     <div class="col-xs-2"><%= f.number_field :ranking, :placeholder => "Ranking" %></div>
+                    <div class="col-xs-2">College ID</div>
+                    <div class="hidden col-xs-2"><%= f.number_field :college_id, :value => college.id %></div>
+                    <div class="hidden col-xs-2"><%= f.number_field :user_id, :value => current_user.id %></div>
                     <div class="col-xs-2"><%= f.submit "Submit" %></div>
                 </div>
                     <% end %>
@@ -58,6 +60,7 @@
 
    <script>
     console.log("Tesssst");
+    $(".hidden").hide();
     $(".container").hide();
     document.getElementById("pop").selectedIndex = "-1";
     $("#pop").on('input',function(){
@@ -67,10 +70,8 @@
         var inputText = document.createElement("input");
         var text = this.value;
         var textNode = document.createTextNode(text);
-        var formy = document.createElement("form");
         link.appendChild(textNode);
         var mainDiv = document.getElementById("div1");
-        formy.appendChild(divy);
         mainDiv.appendChild(divy);
         divy.appendChild(link);
         divy.appendChild(inputText);
@@ -80,9 +81,9 @@
         var aTestClass = returnNoSpaces(text);
         console.log(text);
         var hrefValue = "/colleges/name/";
-        hrefValue += text;
+        hrefValue += encodeURIComponent(text);
 
-        $("a").attr("href",hrefValue)
+        $(link).attr("href",hrefValue);
         $(link).attr("class",aTestClass);
         $(inputText).val(text);
         $(inputText).css("color","red");
@@ -110,8 +111,7 @@
             console.log(classRenamer(classValue));
             var classAppend = classRenamer(classValue);
             $(value).attr("class","container " + classAppend);
-        })
-      // $($(".container")[0]).attr("class")  
+        }) 
     }
 
     function returnNoSpaces(word)
@@ -119,7 +119,8 @@
         var newWord = "";
         for(var i = 0;i < word.length; i ++)
         {
-            if(word[i] !== ' ')
+            var currentWord = word[i];
+            if(currentWord !== ' ' && currentWord !=='&' && currentWord !=='.')
             {   
                 newWord += word[i];  
             }

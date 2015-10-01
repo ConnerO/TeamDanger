@@ -6,11 +6,11 @@ def index
 end
 
 def show
-	if (1 ===0)
+	if params[:id]
  		@college = College.find(params[:id])
- 	end
- 	
- 	@college =  College.find_by(name: params[:college]);
+ 	elsif params[:college]
+ 		@college =  College.find_by(name: params[:college]);
+	end
 end
 
 def new
