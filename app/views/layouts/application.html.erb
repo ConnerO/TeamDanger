@@ -8,19 +8,36 @@
 </head>
 <body>
 
-	<div id="nav">
-    <% if current_user %>
-      <%= link_to "College", test_path %> |
-      <%= link_to "Checklist", check_lists_path %> |
-      <%= link_to "Add to Checklist", new_check_list_path %> |
-      <%= link_to "Logout", :logout, method: :post %>
-    <% else %>
-      <%= link_to "Home", "/" %> |
-      <%= link_to "Register", new_user_path %> |
-      <%= link_to "Login", :login %> | 
-     
-    <% end %>
+
+      
+   
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a><img class="navbar-brand" alt="Brand" style="" src="http://wiki.medibooks.net/images/a/a9/Graduation_Cap.png"></a>
+      
+        <% if current_user %>
+          <%= link_to "College", test_path %> |
+          <%= link_to "Checklist", check_lists_path %> |
+          <%= link_to "Add to Checklist", new_check_list_path %> |
+          <%= link_to "Logout", :logout, method: :post %>
+        <% else %>
+          <span class="home btn btn-default navbar-btn"><%= link_to "Home", "/" %></span>
+          <span class="register btn btn-default navbar-btn"><%= link_to "Register", new_user_path %></span>
+          <span class="login btn btn-default navbar-btn"><%= link_to "Login", :login %></span>
+         
+        <% end %>
+    </div>
   </div>
+</nav>
+
   <div>
     <p id="notice"><%= flash[:notice] %></p>
     <p id="alert"><%= flash[:alert] %></p>

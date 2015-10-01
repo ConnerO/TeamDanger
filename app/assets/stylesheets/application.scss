@@ -14,8 +14,23 @@
  *= require_self
  */
 @import url(https://fonts.googleapis.com/css?family=Lobster); 
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:600);
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.navbar-brand {
+    max-width:100px;
+    margin-right: 10%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.home, .register, .login {
+	font-size: 1.2em;
+	font-family: 'Open Sans', sans-serif;
+	border: 1px solid black;
+	color: #2496D4;
+}
 
 body {
 	font-famly: "Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -35,46 +50,40 @@ div.home {
 
 div.hero {
 	height: 622px;
-	background-image: url(http://7-themes.com/data_images/out/54/6956386-great-waterfall-wallpaper.jpg);
+	background-image: url(http://a.fastcompany.net/multisite_files/coexist/imagecache/1280/poster/2012/12/1681064-poster-1280-college-works-initiative.jpg);
 	background-size: cover;
 	background-repeat: no-repeat;
 	font-family: 'Lobster', cursive;
-	padding: 30% 30% 30% 50%;
+	letter-spacing: 1em;
+	padding: 18% 10%;
 }
 
 #middleHero {
 	color: white;
 	text-align: center;
-	background-color: rgba(0,0,0,.5);
+	background-color: rgba(0,0,0,.4);
+	padding: 70px;
+	font-size: 3em;
+}
+
+div.about {
+	height: 622px;
+	background-color: #85C0E8;
+}
+
+#middleAbout {
+	color: white;
+	text-align: center;
+	/*background-color: rgba(0,0,0,.5);*/
 	padding: 20px;
 	font-size: 2em;
-
+	
 }
 
 div.register {
 	height: 622px;
 	background-color: #669966;
 }
-
-div.about {
-	height: 622px;
-	background-color: #669966;
-}
-
-/*#middleAbout {
-	color: white;
-	position: absolute;
-	top: 40%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	text-align: center;
-	background-color: rgba(0,0,0,.5);
-	padding: 20px;
-	font-size: 2em;
-	box-sizing: border-box;
-}*/
-
-
 
 li {
 	list-style-type: none;
