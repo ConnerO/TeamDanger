@@ -18,8 +18,8 @@
 		</div>
 			
 		<div class="row">
-			<div class="col-md-6 col-sm-6 col-xs-6 float-left">
-				<%= f.text_field :first_name, :placeholder => "First Name" %>
+			<div class="col-md-6 col-sm-6 col-xs-6 float-right">
+				<%= f.text_field :first_name, :placeholder => "First Name", :input_html => {:style=> 'width: 100%'} %>
 			</div>
 			<div class="col-md-6 col-sm-6 col-xs-6 float-right">
 				<%= f.text_field :last_name, :placeholder => "Last Name" %>
