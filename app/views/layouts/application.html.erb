@@ -7,11 +7,6 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-
-      
-   
-
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -22,19 +17,20 @@
         <span class="icon-bar"></span>
       </button>
       <a><img class="navbar-brand" alt="Brand" style="" src="http://wiki.medibooks.net/images/a/a9/Graduation_Cap.png"></a>
-      
+    </div>
+
         <% if current_user %>
-          <%= link_to "College", test_path %> |
-          <%= link_to "Checklist", check_lists_path %> |
-          <%= link_to "Add to Checklist", new_check_list_path %> |
-          <%= link_to "Logout", :logout, method: :post %>
+          <span class="home btn btn-default navbar-btn"><%= link_to "Home", "/" %></span>
+          <span class="college btn btn-default navbar-btn"><%= link_to "College", test_path %></span>
+          <span class="checklist btn btn-default navbar-btn"><%= link_to "Checklist", check_lists_path %></span>
+          <span class="add_checklist btn btn-default navbar-btn"><%= link_to "Add to Checklist", new_check_list_path %></span>
+          <span class="logout btn btn-default navbar-btn"><%= link_to "Logout", :logout, method: :post %></span>
         <% else %>
           <span class="home btn btn-default navbar-btn"><%= link_to "Home", "/" %></span>
           <span class="register btn btn-default navbar-btn"><%= link_to "Register", new_user_path %></span>
           <span class="login btn btn-default navbar-btn"><%= link_to "Login", :login %></span>
-         
         <% end %>
-    </div>
+    
   </div>
 </nav>
 

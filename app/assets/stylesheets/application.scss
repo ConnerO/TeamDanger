@@ -25,11 +25,12 @@
     object-fit: cover;
 }
 
-.home, .register, .login {
+.home, .register, .login, .college, .checklist, .add_checklist, .logout {
 	font-size: 1.2em;
 	font-family: 'Open Sans', sans-serif;
-	border: 1px solid black;
 	color: #2496D4;
+	border-color: #2496D4;
+	
 }
 
 body {
