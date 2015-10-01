@@ -1,5 +1,5 @@
 class NotificationMailer < ApplicationMailer
-	default (:from => "info@postbox.tut", :to=>"somelist@postbox.tut")
+	default(:from => "info@postbox.tut", :to=>"somelist@postbox.tut")
 
 	def notification_mailer(notification)
 	  	@notification = notification
