@@ -62,7 +62,7 @@ div.hero {
 #middleHero {
 	color: white;
 	text-align: center;
-	background-color: rgba(0,0,0,.4);
+	/*background-color: rgba(0,0,0,.4);*/
 	padding: 70px;
 	font-size: 3em;
 }
@@ -85,6 +85,7 @@ div.about {
 	padding: 20px;
 	font-size: 2em;
 	font-family: 'Lobster', cursive;
+	text-shadow: 1px, 1px  black;
 }
 
 div.register {
