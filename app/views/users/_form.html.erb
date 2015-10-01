@@ -5,33 +5,80 @@
 
 
 <div class="row container">
-	<div class="col-md-4">
-	</div>
-	<ul class="col-md-4">
-		<h1>Sign Up</h1>
-		<%= form_for @user do |f| %>
-			<li class="list"> <%= f.text_field :first_name, :placeholder => "First Name" %> </li>
-			<li class="list"> <%= f.text_field :last_name, :placeholder => "Last Name" %> </li>
-			<li class="list"> <%= f.text_field :email, :placeholder => "E-mail" %> </li>
-			<li class="list"> <p>Graduation Date:</p> <%= f.date_field :grad_date, :placeholder => "Graduation Date" %> </li>
-			<li class="list"> <%= f.text_field :gender, :placeholder => "Gender" %> </li>
-			<li class="list"> <%= f.text_field :city, :placeholder => "City" %> </li>
-			<li class="list"> <%= f.text_field :state, :placeholder => "State" %> </li>
-					
-			<div class="field">
-				<br>
-		   		<li class="list"> <%= f.label :password %> </li>
-				<li class="list"> <%= f.password_field :password %> </li>
-			</div>
 
-			<div class="field">
-		  		<li class="list"> <%= f.label :password_confirmation %> </li>
-		  		<li class="list"> <%= f.password_field :password_confirmation %> </li>
+	<div class="col-md-6">
+		<p>This is the left column. We are going to put some words here explaining the form.</p>
+	</div>
+
+	<div class="col-md-6">
+		<%= form_for @user do |f| %>
+
+		<div class="row">
+			<h1>Sign Up</h1>
+		</div>
+			
+		<div class="row">
+			<div class="col-md-6 col-sm-6 col-xs-6 float-left">
+				<%= f.text_field :first_name, :placeholder => "First Name" %>
 			</div>
+			<div class="col-md-6 col-sm-6 col-xs-6 float-right">
+				<%= f.text_field :last_name, :placeholder => "Last Name" %>
+			</div>
+		</div>
+
+		<div class="row">
+			<%= f.text_field :email, :placeholder => "E-mail" %>
+		</div>
+
+		<div class="row">
+			<%= f.text_field :gender, :placeholder => "Gender" %>
+		</div>
+
+		<div class="row">
+			<div class="col-md-6 col-sm-6 col-xs-6 float-left">
+				<%= f.text_field :city, :placeholder => "City" %>
+			</div>
+			<div class="col-md-6 col-sm-6 col-xs-6 float-right">
+				<%= f.text_field :state, :placeholder => "State" %>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-6 col-sm-6 col-xs-6 float-left">
+				<p>Graduation</p>
+			</div> 
+
+			<div class="col-md-6 col-sm-6 col-xs-6 float-right">
+				<%= f.date_field :grad_date, :placeholder => "Graduation Date" %>
+			</div>
+		</div>	
+		
+		<div class="row">
+			<div class="field">
+				<div class="col-md-6 col-sm-6 col-xs-6 float-left">
+		   			<%= f.label :password, "Password" %>
+		   		</div>
+
+		   		<div class="col-md-6 col-sm-6 col-xs-6 float-right">
+					<%= f.password_field :password %>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="field">
+				<div class="col-md-6 col-sm-6 col-xs-6 float-left">
+		  			<%= f.label :password_confirmation, "Confirmation" %>
+		  		</div>
+
+		  		<div class="col-md-6 col-sm-6 col-xs-6 float-right">
+			  		<%= f.password_field :password_confirmation %>
+			  	</div>
+			</div>
+		</div>
 			<%= f.submit "Submit" %>
 		<% end %>	
-	</ul>
-	<div class="col-md-4">
 	</div>
+
 </div>
 

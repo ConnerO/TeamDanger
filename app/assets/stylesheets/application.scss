@@ -114,24 +114,18 @@ input, select {
 	box-sizing:border-box;
 }
 
+.float-left {
+	float: left;
+	display: inline-block;
+	text-align: right;
+}
 
+.float-right {
+	float: right;
+	display: inline-block;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*     */
+.fieldWidth {
+	max-width: 100%;
+}
+>>>>>>> 02238ec0dbfc12f746382194f12df27f1a6761bc
