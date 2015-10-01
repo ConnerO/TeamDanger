@@ -25,6 +25,10 @@
     object-fit: cover;
 }*/
 
+.navbar {
+	margin: 0px;
+}
+
 .home, .college, .checklist, .add_checklist {
 	font-size: 1.2em;
 	font-family: 'Open Sans', sans-serif;
@@ -116,7 +120,7 @@ li {
 	list-style-type: none;
 }
 
-li input {
+/*li input {
     width: 300px;
     padding: 10px;
     font-size: 18px;
@@ -129,9 +133,10 @@ li input {
 	clear: both;
 	margin: 1px;
 }
+
 input, select {
 	box-sizing:border-box;
-}
+}*/
 
 .float-left {
 	float: left;
