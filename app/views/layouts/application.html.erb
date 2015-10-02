@@ -31,14 +31,11 @@
           <span class="register btn btn-default navbar-btn"><%= link_to "Register", new_user_path %></span>
         
         <% end %>
+        <p id="notice"><%= flash[:notice] %></p>
+        <p id="alert"><%= flash[:alert] %></p>
     
   </div>
 </nav>
-
-  <div class="alerts">
-    <p id="notice"><%= flash[:notice] %></p>
-    <p id="alert"><%= flash[:alert] %></p>
-  </div>
 
 <%= yield %>
 

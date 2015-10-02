@@ -34,8 +34,15 @@
 	border-color: none;
 }
 
-.alerts {
-	background-color: #f8f8f8;
+.navbar-btn {
+	
+}
+
+#notice, #alert {
+	font-size: 1.2em;
+	font-family: 'Open Sans', sans-serif;
+	color: #2496D4;
+	text-align: center;
 }
 
 .home, .college, .checklist, .add_checklist {
@@ -66,7 +73,6 @@
 body {
 	font-famly: "Helvetica Neue",Helvetica,Arial,sans-serif;
 	text-shadow: 1px, 1px  black;
-
 }
 
 p {	
@@ -77,7 +83,6 @@ p {
 
 div.home {
 	height: 622px;
-
 }
 
 div.hero {
@@ -86,28 +91,25 @@ div.hero {
 	background-size: cover;
 	background-repeat: no-repeat;
 	font-family: 'Lobster', cursive;
-	letter-spacing: 1em;
+	letter-spacing: .8em;
 	padding: 18% 10%;
 }
 
 #middleHero {
 	color: white;
 	text-align: center;
-	padding: 70px;
-	font-size: 3em;
+	padding: 10px;
+	font-size: 4.5em;
 	text-shadow: 1px 1px 1px #000, 3px 3px 5px black;
 }
 
 div.about {
-	height: 622px;
-	
+	height: 500px;	
 }
 
-.about-text {
+.about {
 	padding: 8%;
-	border: 2px solid black;
-	border-radius: 10px;
-	background-color: #85C0E8;
+	background-color: rgba(133, 192, 232, .6);
 }
 
 #middleAbout {
@@ -118,14 +120,94 @@ div.about {
 	font-family: 'Lobster', cursive;
 }
 
+.sign-up-text {
+	color: black;
+	text-align: center;
+	padding: 20px;
+	font-size: 2em;
+	font-family: 'Lobster', cursive;
+}
+
 div.register {
 	height: 622px;
-	background-color: #669966;
 }
 
 li {
 	list-style-type: none;
 }
+
+.sign-up-div {
+	padding: 0 0 5% 5%;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.sign-up-center {
+	margin-left: 0;
+}
+
+.nifty_form input {
+	width: 100%;
+	padding: 0 2% 2% 0;
+}
+
+.sign-up {
+	padding: 2% 0;
+}
+
+.sign-up-first {
+	padding: 2% 2% 0 0;
+}
+
+#submit {
+	padding: 2% 0;
+}
+
+#new-sign-up, #new-login {
+	background-color: rgba(133, 192, 232, .6);
+}
+
+#login {
+	color: black;
+	text-align: center;
+	padding: 20px;
+	font-size: 2em;
+	font-family: 'Lobster', cursive;
+}
+
+.login-center {
+	margin: 0 0 0 5%;
+}
+
+#forgot {
+	color: black;
+	text-align: center;
+	padding: 20px;
+	font-size: 2em;
+	font-family: 'Lobster', cursive;
+}
+
+.footer {
+	padding: 2% 0;
+	background-color: rgba(133, 192, 232, .6);
+}
+
+.footer-logo {
+	color: black;
+	padding: 10px;
+	font-size: 1.75em;
+	font-family: 'Lobster', cursive;
+	text-align: center;
+}
+
+.footer-contact {
+	color: black;
+	font-weight: bold;
+	padding: 10px;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 1.2em;
+	text-align: center;
+}
+
 
 /*li input {
     width: 300px;
@@ -166,18 +248,6 @@ input, select {
 
 
 /*     */
-
-.row {
-	border: 1px dashed green;
-}
-
-.col-md-6 {
-	border: 1px dashed red;
-}
-
-input {
-	border: 1px solid black;
-}
 
 f.label { 
 	max-width: 100%; 
