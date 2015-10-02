@@ -2,9 +2,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 </head>
 <body>
-    <h1>This is a test</h1>
-    <p>Welcome <%= @current_user.first_name %> with ID of <%= @current_user.id %></p>
+    <h1>Welcome <%= @current_user.first_name %></h1>
     <% @check_list.user_id = @current_user.id %>
+    <% current_lists = @check_lists.where(user_id: current_user.id) %>
     <div id="div1"></div>
     <select class="popdown" id="pop">
     <% @colleges.each do |college| %>
@@ -14,49 +14,97 @@
 
     <ul>
         <% @colleges.each do |college| %>
-        <li>  
+        <li>
         <% college_name = college.name %>
         <div class = "container <%= college_name %>">    
-            <h1>Checklist for <%= college_name %></h1>
-            <h2>Current user id is <%= current_user.id %></h2>
+            <h2>Checklist for <%= college_name %></h2>
+            
+            <% select_colleges_array = @check_lists.select(:college_id).distinct.pluck(:college_id) %>
+ 
+            <% select_colleges_array.each do |sel_col_id| %>
+                <% if sel_col_id == college.id %>
+                    <% @selected = current_lists.find_by("college_id=?", sel_col_id) %>
+                <% end %>
+            <% end %>
                 <%= form_for @check_list do |f| %>
                 <div class = "row">
                     <div class="col-xs-2">Deadline</div>
-                    <div class="col-xs-2"><%= f.date_field :deadline, :placeholder => "Deadline" %></div>
+                    <% if @selected  %>
+                        <div class="col-xs-2"><%= f.text_field :deadline, :placeholder => @selected.deadline %></div>
+                        <% else %>
+                        <div class="col-xs-2"><%= f.text_field :deadline, :placeholder => "yyyy-mm-dd" %></div>
+                    <% end %>
                     <div class="col-xs-2">Transcript?</div>
-                    <div class="col-xs-2"><%= f.text_field :transcript, :placeholder => "True or False" %></div>
+                    <% if @selected %>
+                        <div class="col-xs-2"><%= f.text_field :transcript, :placeholder => @selected.transcript %></div>
+                        <% else %>
+                        <div class="col-xs-2"><%= f.text_field :transcript, :placeholder => "True or False" %></div>
+                        <% end %>
                     <div class="col-xs-2">Essay?</div>
-                    <div class="col-xs-2"><%= f.text_field :essay, :placeholder => "True or False" %></div>
+                    <% if @selected %>
+                        <div class="col-xs-2"><%= f.text_field :essay, :placeholder => @selected.essay %></div>
+                        <% else %>
+                        <div class="col-xs-2"><%= f.text_field :essay, :placeholder => "True or False" %></div>
+                    <% end %>
                 </div>
                 <div class="row">
                     <div class="col-xs-2">S.A.T.?</div>
-                    <div class="col-xs-2"><%= f.text_field :sat, :placeholder => "True or False" %></div>
+                    <% if @selected %>
+                        <div class="col-xs-2"><%= f.text_field :sat, :placeholder => @selected.sat %></div>
+                        <% else %>
+                        <div class="col-xs-2"><%= f.text_field :sat, :placeholder => "True or False" %></div>
+                    <% end %>
                     <div class="col-xs-2">A.C.T.?</div>
-                    <div class="col-xs-2"><%= f.text_field :act, :placeholder => "True or False" %></div>
+                    <% if @selected %>
+                        <div class="col-xs-2"><%= f.text_field :act, :placeholder => @selected.act %></div>
+                        <% else %>
+                        <div class="col-xs-2"><%= f.text_field :act, :placeholder => "True or False" %></div>
+                    <% end %>                    
                     <div class="col-xs-2">Applicaiton?</div>
-                    <div class="col-xs-2"><%= f.text_field :application, :placeholder => "True or False" %></div>
+                    <% if @selected %>
+                        <div class="col-xs-2"><%= f.text_field :application, :placeholder => @selected.application %></div>
+                        <% else %>
+                        <div class="col-xs-2"><%= f.text_field :application, :placeholder => "True or False" %></div>
+                    <% end %>
                 </div>
                 <div class="row">
                     <div class="col-xs-2">College Tour Date</div>
-                    <div class="col-xs-2"><%= f.date_field :tour_date, :placeholder => "College Tour Date" %></div>
+                    <% if @selected %>
+                        <div class="col-xs-2"><%= f.text_field :tour_date, :placeholder => "College Tour Date" %></div>
+                        <% else %>
+                        <div class="col-xs-2"><%= f.text_field :tour_date, :placeholder => "yyyy-mm-dd" %></div>
+                    <% end %>
                     <div class="col-xs-2">Rec Letters?</div>
-                    <div class="col-xs-2"><%= f.text_field :rec_letters, :placeholder => "True or False" %></div>
+                    <% if @selected %>
+                        <div class="col-xs-2"><%= f.text_field :rec_letters, :placeholder => @selected.rec_letters %></div>
+                        <% else %>
+                        <div class="col-xs-2"><%= f.text_field :rec_letters, :placeholder => "True or False" %></div>
+                    <% end %>
                     <div class="col-xs-2">Early Accept?</div>
-                    <div class="col-xs-2"><%= f.text_field :early_acceptance, :placeholder => "True or False" %></div>
+                    <% if @selected %>
+                        <div class="col-xs-2"><%= f.text_field :early_acceptance, :placeholder => @selected.early_acceptance %></div>
+                        <% else %>
+                        <div class="col-xs-2"><%= f.text_field :early_acceptance, :placeholder => "True or False" %></div>
+                    <% end %>
                 </div>
                 <div class="row">
-                    <div class="col-xs-2">Ranking</div>
-                    <div class="col-xs-2"><%= f.number_field :ranking, :placeholder => "Ranking" %></div>
-                    <div class="col-xs-2">College ID</div>
+                   <div class="col-xs-2">Ranking</div>
+                   <% if @selected %>
+                        <div class="col-xs-2"><%= f.number_field :ranking, :placeholder => @selected.ranking %></div>
+                        <% else %>
+                        <div class="col-xs-2"><%= f.number_field :ranking, :placeholder => "Ranking" %></div>
+                    <% end %>  
                     <div class="hidden col-xs-2"><%= f.number_field :college_id, :value => college.id %></div>
                     <div class="hidden col-xs-2"><%= f.number_field :user_id, :value => current_user.id %></div>
                     <div class="col-xs-2"><%= f.submit "Submit" %></div>
+
                 </div>
-                    <% end %>
-                </div>
+                <% end %>
+            <% @selected = false %>
+        </div>
         </li>
-    <% end %>
-</ul>
+        <% end %>
+    </ul>
 
    <script>
     console.log("Tesssst");
