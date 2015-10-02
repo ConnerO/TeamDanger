@@ -21,9 +21,9 @@
 
         <% if current_user %>
           <span class="home btn btn-default navbar-btn"><%= link_to "Home", "/" %></span>
-          <span class="college btn btn-default navbar-btn"><%= link_to "College", test_path %></span>
-          <span class="checklist btn btn-default navbar-btn"><%= link_to "Checklist", check_lists_path %></span>
-          <span class="add_checklist btn btn-default navbar-btn"><%= link_to "Add to Checklist", new_check_list_path %></span>
+          <span class="college btn btn-default navbar-btn"><%= link_to "Tracker", test_path %></span>
+          <span class="checklist btn btn-default navbar-btn"><%= link_to "My Checklists", check_lists_path %></span>
+          <span class="add_checklist btn btn-default navbar-btn"><%= link_to "Add a College", new_college_path %></span>
           <span class="logout btn btn-default navbar-btn"><%= link_to "Logout", :logout, method: :post %></span>
         <% else %>
           <span class="home btn btn-default navbar-btn"><%= link_to "Home", "/" %></span>
