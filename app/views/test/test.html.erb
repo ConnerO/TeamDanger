@@ -15,7 +15,7 @@
     <% end %>
    </select>
 
-    <ul>
+    <ul class="main-font">
         <% @colleges.each do |college| %>
         <li>
         <% college_name = college.name %>
@@ -29,21 +29,21 @@
                     <% @selected = current_lists.where("college_id=?", sel_col_id).last %>
                 <% end %>
             <% end %>
-                <%= form_for @check_list do |f| %>
+                <%= form_for @check_list, html: {class: "nifty_form"} do |f| %>
                 <div class = "row">
-                    <div class="col-xs-2">Deadline</div>
+                    <div class="col-xs-2">Application Deadline</div>
                     <% if @selected  %>
                         <div class="col-xs-2"><%= f.date_field :deadline, :value => @selected.deadline %></div>
                         <% else %>
                         <div class="col-xs-2"><%= f.date_field :deadline, :placeholder => "yyyy-mm-dd" %></div>
                     <% end %>
-                    <div class="col-xs-2">Transcript?</div>
+                    <div class="col-xs-2">Transcript Sent</div>
                     <% if @selected && @selected.transcript != nil %>
                         <div class="col-xs-2"><%= f.text_field :transcript, :value => @selected.transcript %></div>
                         <% else %>
                         <div class="col-xs-2"><%= f.text_field :transcript, :placeholder => "True or False" %></div>
                         <% end %>
-                    <div class="col-xs-2">Essay?</div>
+                    <div class="col-xs-2">Essay Submitted</div>
                     <% if @selected && @selected.essay != nil %>
                         <div class="col-xs-2"><%= f.text_field :essay, :value => @selected.essay %></div>
                         <% else %>
@@ -51,19 +51,19 @@
                     <% end %>
                 </div>
                 <div class="row">
-                    <div class="col-xs-2">S.A.T.?</div>
+                    <div class="col-xs-2">S.A.T. Score Sent</div>
                     <% if @selected && @selected.sat != nil %>
                         <div class="col-xs-2"><%= f.text_field :sat, :value => @selected.sat %></div>
                         <% else %>
                         <div class="col-xs-2"><%= f.text_field :sat, :placeholder => "True or False" %></div>
                     <% end %>
-                    <div class="col-xs-2">A.C.T.?</div>
+                    <div class="col-xs-2">A.C.T. Score Sent</div>
                     <% if @selected && @selected.act != nil %>
                         <div class="col-xs-2"><%= f.text_field :act, :value => @selected.act %></div>
                         <% else %>
                         <div class="col-xs-2"><%= f.text_field :act, :placeholder => "True or False" %></div>
                     <% end %>                    
-                    <div class="col-xs-2">Applicaiton?</div>
+                    <div class="col-xs-2">Applicaiton Sent</div>
                     <% if @selected && @selected.application != nil %>
                         <div class="col-xs-2"><%= f.text_field :application, :value => @selected.application %></div>
                         <% else %>
@@ -71,19 +71,19 @@
                     <% end %>
                 </div>
                 <div class="row">
-                    <div class="col-xs-2">College Tour Date</div>
+                    <div class="col-xs-2">Campus Tour Date</div>
                     <% if @selected %>
                         <div class="col-xs-2"><%= f.date_field :tour_date, :value => @selected.tour_date %></div>
                         <% else %>
                         <div class="col-xs-2"><%= f.date_field :tour_date, :placeholder => "yyyy-mm-dd" %></div>
                     <% end %>
-                    <div class="col-xs-2">Rec Letters?</div>
+                    <div class="col-xs-2">Rec Letters Sent</div>
                     <% if @selected && @selected.rec_letters != nil %>
                         <div class="col-xs-2"><%= f.text_field :rec_letters, :value => @selected.rec_letters %></div>
                         <% else %>
                         <div class="col-xs-2"><%= f.text_field :rec_letters, :placeholder => "True or False" %></div>
                     <% end %>
-                    <div class="col-xs-2">Early Accept?</div>
+                    <div class="col-xs-2">Early Acceptance</div>
                     <% if @selected && @selected.early_acceptance != nil %>
                         <div class="col-xs-2"><%= f.text_field :early_acceptance, :value => @selected.early_acceptance %></div>
                         <% else %>
@@ -99,8 +99,12 @@
                     <% end %>  
                     <div class="hidden col-xs-2"><%= f.number_field :college_id, :value => college.id %></div>
                     <div class="hidden col-xs-2"><%= f.number_field :user_id, :value => current_user.id %></div>
-                    <div class="col-xs-2"><%= f.submit "Submit" %></div>
+                    
 
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-xs-2" id="submit-checklist"><%= f.submit "Submit", :class =>"submit_submit" %></div>
                 </div>
                 <% end %>
             <% @selected = false %>
@@ -119,22 +123,31 @@
         // $(".popdown").hide();
         var link = document.createElement("a");
         var divy = document.createElement("div");
+        var inputText = document.createElement("input");
         var text = this.value;
         var textNode = document.createTextNode(text);
         link.appendChild(textNode);
         var mainDiv = document.getElementById("div1");
         mainDiv.appendChild(divy);
         divy.appendChild(link);
+        divy.appendChild(inputText);
        
         var textClass = "." + text;
         textClass = returnNoSpaces(textClass);
         var aTestClass = returnNoSpaces(text);
+        console.log(text);
         var hrefValue = "/colleges/name/";
         hrefValue += encodeURIComponent(text);
 
         $(link).attr("href",hrefValue);
         $(link).attr("class",aTestClass);
+
         $(link).css("position","absolute");
+
+
+        $(inputText).val(text);
+        $(inputText).css("color","red");
+        $(inputText).hide();
 
         var className = "." + aTestClass;
         $($(className)[1]).show();
