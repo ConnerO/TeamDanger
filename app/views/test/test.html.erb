@@ -111,6 +111,7 @@
 
    <script>
     console.log("Tesssst");
+    var linkFormArray = [];
     $(".hidden").hide();
     $(".container").hide();
     document.getElementById("pop").selectedIndex = "-1";
@@ -133,9 +134,19 @@
 
         $(link).attr("href",hrefValue);
         $(link).attr("class",aTestClass);
+        $(link).css("position","absolute");
 
         var className = "." + aTestClass;
-        $(className).show();
+        $($(className)[1]).show();
+        
+        linkFormArray.push({link:$(link),form:$($(className)[1])});
+        linkFormArray.forEach(function(value,index){
+            var topy = value.form.position().top;
+            linkFormArray[index].link.css("top", topy + "px");
+            var lefty = value.form.position().left;
+            linkFormArray[index].link.css("left", 2.56 * lefty + "px");
+
+        });
     });
     classFinder();
     function classRenamer(word)
@@ -153,8 +164,6 @@
         var containerArray = $('.container');
         containerArray.each(function(index,value){
             var classValue = $(value).attr("class");
-            
-            console.log(classRenamer(classValue));
             var classAppend = classRenamer(classValue);
             $(value).attr("class","container " + classAppend);
         }) 
