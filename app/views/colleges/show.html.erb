@@ -1,4 +1,14 @@
-<h1>The show</h1>
-
-<h2><%=@college.name%><h2>
-
+<div id="college_show">
+<h1 id="college_title"><%=@college.name%></h1>
+<br>
+	<div id="college_body">
+	<p>City: <%= @college.city %></p>
+	<p>State: <%= @college.state %></p>
+	<p>Contact Info: <%= @college.contact_info %></p>
+	<p>Address: <%= @college.address %></p>
+	<p>Tuition: $<%= @college.tuition %></p>
+	<p>Financial aid? <%= @college.financial_aid %></p>
+	<p>Scholarships? <%= @college.scholarship %></p>
+	<p>Comments? <%= @college.comments %></p>
+	</div>
+</div>

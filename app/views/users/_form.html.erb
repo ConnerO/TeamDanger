@@ -4,53 +4,47 @@
 
 
 
-<div class="row container">
+<div class="row container sign-up-center">
 
-	<div class="col-md-6">
-		<p>This is the left column. We are going to put some words here explaining the form.</p>
-	</div>
+	<div class="col-md-3"></div>
 
-	<div class="col-md-6">
-		<%= form_for @user do |f| %>
+	<div class="sign-up-div col-md-6 col-sm-6 col-xs-6">
+		<%= form_for @user, html: {class: "nifty_form"} do |f| %>
 
-		<div class="row">
+		<div class="row sign-up-text">
 			<h1>Sign Up</h1>
 		</div>
 			
 		<div class="row">
-			<div class="col-md-6 col-sm-6 col-xs-6 float-right">
-				<%= f.text_field :first_name, :placeholder => "First Name", :input_html => {:style=> 'width: 100%'} %>
+			<div class="col-md-6 col-sm-6 col-xs-6 float-left sign-up-first">
+				<%= f.text_field :first_name, :placeholder => "First Name" %>
 			</div>
-			<div class="col-md-6 col-sm-6 col-xs-6 float-right">
+			<div class="col-md-6 col-sm-6 col-xs-6 float-right sign-up">
 				<%= f.text_field :last_name, :placeholder => "Last Name" %>
 			</div>
 		</div>
 
-		<div class="row">
-			<%= f.text_field :email, :placeholder => "E-mail" %>
+		<div class="row"> 
+			<div class="col-md-12 col-sm-12 col-xs-12 sign-up">
+				<%= f.text_field :email, :placeholder => "E-mail" %>
+			</div>
 		</div>
 
 		<div class="row">
-			<%= f.text_field :gender, :placeholder => "Gender" %>
-		</div>
-
-		<div class="row">
-			<div class="col-md-6 col-sm-6 col-xs-6 float-left">
+			<div class="col-md-6 col-sm-6 col-xs-6 float-left sign-up-first">
 				<%= f.text_field :city, :placeholder => "City" %>
 			</div>
-			<div class="col-md-6 col-sm-6 col-xs-6 float-right">
+			<div class="col-md-6 col-sm-6 col-xs-6 float-right sign-up">
 				<%= f.text_field :state, :placeholder => "State" %>
 			</div>
 		</div>
-		
-		<div class="row">
-			<div class="col-md-6 col-sm-6 col-xs-6 float-left">
-				<p>Graduation</p>
-			</div> 
 
-			<div class="col-md-6 col-sm-6 col-xs-6 float-right">
-				<%= f.date_field :grad_date, :placeholder => "Graduation Date" %>
+		<div class="row">
+			<div class="col-md-6 col-sm-6 col-xs-6 float-left sign-up-first">
+				<%= f.text_field :gender, :placeholder => "Gender" %>
 			</div>
+			<div class="col-md-6 col-sm-6 col-xs-6 float-right sign-up">
+				<%= f.text_field :grad_date, :placeholder => "Graduation Date" %>
 		</div>	
 		
 		<div class="row">
@@ -76,9 +70,13 @@
 			  	</div>
 			</div>
 		</div>
-			<%= f.submit "Submit" %>
+
+		<div class="row" id="submit">
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<%= f.submit "Submit" %>
+			</div>
+		</div>	
 		<% end %>	
 	</div>
-
 </div>
 

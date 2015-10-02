@@ -2,7 +2,11 @@ class TestController < ApplicationController
     # skip_before_action :verify_authenticity_token
     def test
         @colleges = College.all
+        
         @check_list = CheckList.new
+        @check_lists = CheckList.all
+        @selected = false
+        @up_check = false
         current_user
     end
 
