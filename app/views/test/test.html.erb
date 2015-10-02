@@ -118,27 +118,22 @@
         // $(".popdown").hide();
         var link = document.createElement("a");
         var divy = document.createElement("div");
-        var inputText = document.createElement("input");
         var text = this.value;
         var textNode = document.createTextNode(text);
         link.appendChild(textNode);
         var mainDiv = document.getElementById("div1");
         mainDiv.appendChild(divy);
         divy.appendChild(link);
-        divy.appendChild(inputText);
        
         var textClass = "." + text;
         textClass = returnNoSpaces(textClass);
         var aTestClass = returnNoSpaces(text);
-        console.log(text);
         var hrefValue = "/colleges/name/";
         hrefValue += encodeURIComponent(text);
 
         $(link).attr("href",hrefValue);
         $(link).attr("class",aTestClass);
-        $(inputText).val(text);
-        $(inputText).css("color","red");
-        $(inputText).hide();
+
         var className = "." + aTestClass;
         $(className).show();
     });
