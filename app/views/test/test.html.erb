@@ -20,11 +20,7 @@
         <li>
         <% college_name = college.name %>
         <div class = "container <%= college_name %>">    
-<<<<<<< HEAD
             <h2 class="headerers <%=college_name%>">Checklist for </h2>
-=======
-            <h2>Checklist for </h2>
->>>>>>> c53b657ae501a8d4e84a81ff5c5414684604538e
             
             <% select_colleges_array = @check_lists.select(:college_id).distinct.pluck(:college_id) %>
  
@@ -121,7 +117,7 @@
     console.log("Tesssst");
     var linkFormArray = [];
     $(".hidden").hide();
-    // $(".container").hide();
+    $(".container").hide();
     document.getElementById("pop").selectedIndex = "-1";
     $("#pop").on('input',function(){
         // $(".popdown").hide();
@@ -141,12 +137,19 @@
         var hrefValue = "/colleges/name/";
         hrefValue += encodeURIComponent(text);
 
+        var formTargeter = "." + aTestClass;
+
+        var actualForm = $($(formTargeter)[0]);
+        actualForm.show();
+        var headerTargeter = ".header" + aTestClass;
+        $(headerTargeter)[0].appendChild(link); 
+        console.log(headerTargeter);
+
         $(link).attr("href",hrefValue);
         $(link).attr("class",aTestClass);
         $(link).css("font-size","28px");
         $(link).css("position","absolute");
 
-        });
     });
     classFinder();
     headerFinder();
