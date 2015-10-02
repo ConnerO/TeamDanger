@@ -1,17 +1,21 @@
-<h1>Successfully added your check list to our database</h1>
+<div id="check_show">
+<h1 id="check_title">Successfully added your check list to our database</h1>
 <br>
-	<p>Entry number: <%= @check_list.id %></p>
-	<p>Student ID: <%= @check_list.user_id %></p>
-	<% college_id = Integer(@check_list.college_id) %>
-	<% college = @colleges.find(college_id) %>
-	<p>College: <%= college.name %></p>
-	<p>Deadline: <%= @check_list.deadline %></p>
-	<p>Transcript sent? <%= @check_list.transcript %></p>
-	<p>Essay done? <%= @check_list.essay %></p>
-	<p>S.A.T. sent?<%= @check_list.sat %></p>
-	<p>A.C.T. sent?<%= @check_list.act %></p>
-	<p>Letters of recommendation done?<%= @check_list.rec_letters %></p>
-	<p>Application sent? <%= @check_list.application %></p>
-	<p>Going for Early Acceptance?<%= @check_list.early_acceptance %></p>
-	<p>Tour Date: <%= @check_list.tour_date %></p>
-	<p>Ranking: <%= @check_list.ranking %></p>
+	<div id="check_body">
+		<p>Entry number: <%= @check_list.id %></p>
+		<p>Student ID: <%= @check_list.user_id %></p>
+		<% college_id = Integer(@check_list.college_id) %>
+		<% college = @colleges.find(college_id) %>
+		<p>College: <%= college.name %></p>
+		<p>Deadline: <%= @check_list.deadline %></p>
+		<p>Transcript sent? <%= @check_list.transcript %></p>
+		<p>Essay done? <%= @check_list.essay %></p>
+		<p>S.A.T. sent? <%= @check_list.sat %></p>
+		<p>A.C.T. sent? <%= @check_list.act %></p>
+		<p>Letters of recommendation done? <%= @check_list.rec_letters %></p>
+		<p>Application sent? <%= @check_list.application %></p>
+		<p>Going for Early Acceptance? <%= @check_list.early_acceptance %></p>
+		<p>Tour Date: <%= @check_list.tour_date %></p>
+		<p>Ranking: <%= @check_list.ranking %></p>
+	</div>
+</div>

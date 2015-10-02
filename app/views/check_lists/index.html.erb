@@ -1,97 +1,28 @@
 <h1>Check Lists</h1>
-<p>Welcome <%= @current_user.first_name %> with ID of <%= @current_user.id %></p>
+<p>Welcome <%= current_user.first_name %> with ID of <%= current_user.id %></p>
 <% if @check_lists == nil %>
 	<p>No check lists yet!</p>
 	<% else %>
 		<ul>
-			<% @check_lists.each do |x| %>
+			<% @check_lists.each do |check_list| %>
 			<li>		
-				<% @check_list.user_id = @current_user.id %>
-				<div class = "container">
-					<% college_id = @check_list.college_id %>
-					<% college_name = @College.find(college_id).name %>
-					<h1>Checklist for <%= college_name %></h1>
-				<%= form_for @check_list do |f| %>
-					<div class = "row">
-						<div class="col-xs-2">Deadline</div>
-						<div class="col-xs-2"><%= f.date_field :deadline, :placeholder => "Deadline" %></div>
-						<div class="col-xs-2">Transcript?</div>
-						<div class="col-xs-2"><%= f.text_field :transcript, :placeholder => "True or False" %></div>
-						<div class="col-xs-2">Essay?</div>
-						<div class="col-xs-2"><%= f.text_field :essay, :placeholder => "True or False" %></div>
-					</div>
-					<div class="row">
-						<div class="col-xs-2">S.A.T.?</div>
-						<div class="col-xs-2"><%= f.text_field :sat, :placeholder => "True or False" %></div>
-						<div class="col-xs-2">A.C.T.?</div>
-						<div class="col-xs-2"><%= f.text_field :act, :placeholder => "True or False" %></div>
-						<div class="col-xs-2">Applicaiton?</div>
-						<div class="col-xs-2"><%= f.text_field :application, :placeholder => "True or False" %></div>
-					</div>
-					<div class="row">
-						<div class="col-xs-2">College Tour Date</div>
-						<div class="col-xs-2"><%= f.date_field :tour_date, :placeholder => "College Tour Date" %></div>
-						<div class="col-xs-2">Rec Letters?</div>
-						<div class="col-xs-2"><%= f.text_field :rec_letters, :placeholder => "True or False" %></div>
-						<div class="col-xs-2">Early Accept?</div>
-						<div class="col-xs-2"><%= f.text_field :early_acceptance, :placeholder => "True or False" %></div>
-					</div>
-					<div class="row">
-						<div class="col-xs-2">Ranking</div>
-						<div class="col-xs-2"><%= f.number_field :ranking, :placeholder => "Ranking" %></div>
-						<div class="col-xs-2"><%= f.submit "Submit" %></div>
-					</div>
-			<% end %>
+				<h1>Entry number: <%= check_list.id %></h1>
+				<p>Student ID: <%= check_list.user_id %></p>
+				<% college_id = check_list.college_id %>
+				<% college = @colleges.find(college_id) %>
+				<p>College: <%= college.name %></p>
+				<p>Deadline: <%= check_list.deadline %></p>
+				<p>Transcript sent? <%= check_list.transcript %></p>
+				<p>Essay done? <%= check_list.essay %></p>
+				<p>S.A.T. sent? <%= check_list.sat %></p>
+				<p>A.C.T. sent? <%= check_list.act %></p>
+				<p>Letters of recommendation done? <%= check_list.rec_letters %></p>
+				<p>Application sent? <%= check_list.application %></p>
+				<p>Going for Early Acceptance? <%= check_list.early_acceptance %></p>
+				<p>Tour Date: <%= check_list.tour_date %></p>
+				<p>Ranking: <%= check_list.ranking %></p>
+				<br>
 			</li>
 			<% end %>
 		</ul>
-		<ul>
-	<% @postings.each do |x| %>
-	<li>
-		<p>Entry number: <%= x.id %></p>
-		<h3><%= x.company_name %></h3>
-		<h4><%= x.job_title %></h4>
-		<h5><%= link_to x.posting_url, x.posting_url %></h5>
-		<% if x.date_time == nil %>
-			<p>No date/time stamp</p>
-			<% else %>
-			<p><%= x.date_time %></p>
-		<% end %>
-		<% if x.user_id == nil %>
-			<p>No User Id</p>
-			<% else %>
-			<p>Posted by <%= x.user_id %></p>
-		<% end %>
-	</li>
-	
-	<% if @comments.where("job_posting_id = ?", x.id).empty? == true %>
-		<p>No comments</p>
-		<% else %>
-		<p><%= x.id %></p>
-			<% @comments.where("job_posting_id = ?", x.id).each do |y| %>
-				<li>
-					<p>Comment</p>
-					<h3><%= y.comment %></h3>
-					<% if y.date_time == nil %>
-					<p>No date/time stamp</p>
-						<% else %>
-						<p><%= y.date_time %></p>
-					<% end %>
-					<% if y.user_id == nil %>
-					<p>No User Id</p>
-						<% else %>
-						<p>Posted by <%= y.user_id %></p>
-					<% end %>
-				</li>
-			<% end %>
-	<% end %>
-	<%= form_for @comment do |f| %>
-	<%= f.text_field :comment, :placeholder => "Comment" %>
-	<%= f.number_field :job_posting_id, :value => x.id %>
-	<%= f.submit "Submit" %>
 <% end %>
-
-<% end %>
-</ul> 
-
-	<% end %>

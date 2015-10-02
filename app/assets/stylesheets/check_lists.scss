@@ -1,3 +1,26 @@
 // Place all the styles related to the CheckLists controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#check_show {
+	background-image: url(http://www.biologycorner.com/resources/blog_images/study_hall_vader.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+#check_title {
+	font-size: 36px;
+	text-align: center;
+	color: red;
+	margin-top: -10px;
+	text-shadow: 2px 2px 2px black;
+}
+
+#check_body {
+	color: white;
+	font-size: 24px;
+	margin-left: 410px;
+	text-shadow: 2px 2px 2px black;
+}
