@@ -35,13 +35,13 @@
                         <div class="col-xs-2"><%= f.date_field :deadline, :placeholder => "yyyy-mm-dd" %></div>
                     <% end %>
                     <div class="col-xs-2">Transcript?</div>
-                    <% if @selected %>
+                    <% if @selected && @selected.transcript != nil %>
                         <div class="col-xs-2"><%= f.text_field :transcript, :value => @selected.transcript %></div>
                         <% else %>
                         <div class="col-xs-2"><%= f.text_field :transcript, :placeholder => "True or False" %></div>
                         <% end %>
                     <div class="col-xs-2">Essay?</div>
-                    <% if @selected %>
+                    <% if @selected && @selected.essay != nil %>
                         <div class="col-xs-2"><%= f.text_field :essay, :value => @selected.essay %></div>
                         <% else %>
                         <div class="col-xs-2"><%= f.text_field :essay, :placeholder => "True or False" %></div>
@@ -49,19 +49,19 @@
                 </div>
                 <div class="row">
                     <div class="col-xs-2">S.A.T.?</div>
-                    <% if @selected %>
+                    <% if @selected && @selected.sat != nil %>
                         <div class="col-xs-2"><%= f.text_field :sat, :value => @selected.sat %></div>
                         <% else %>
                         <div class="col-xs-2"><%= f.text_field :sat, :placeholder => "True or False" %></div>
                     <% end %>
                     <div class="col-xs-2">A.C.T.?</div>
-                    <% if @selected %>
+                    <% if @selected && @selected.act != nil %>
                         <div class="col-xs-2"><%= f.text_field :act, :value => @selected.act %></div>
                         <% else %>
                         <div class="col-xs-2"><%= f.text_field :act, :placeholder => "True or False" %></div>
                     <% end %>                    
                     <div class="col-xs-2">Applicaiton?</div>
-                    <% if @selected %>
+                    <% if @selected && @selected.application != nil %>
                         <div class="col-xs-2"><%= f.text_field :application, :value => @selected.application %></div>
                         <% else %>
                         <div class="col-xs-2"><%= f.text_field :application, :placeholder => "True or False" %></div>
@@ -75,13 +75,13 @@
                         <div class="col-xs-2"><%= f.date_field :tour_date, :placeholder => "yyyy-mm-dd" %></div>
                     <% end %>
                     <div class="col-xs-2">Rec Letters?</div>
-                    <% if @selected %>
+                    <% if @selected && @selected.rec_letters != nil %>
                         <div class="col-xs-2"><%= f.text_field :rec_letters, :value => @selected.rec_letters %></div>
                         <% else %>
                         <div class="col-xs-2"><%= f.text_field :rec_letters, :placeholder => "True or False" %></div>
                     <% end %>
                     <div class="col-xs-2">Early Accept?</div>
-                    <% if @selected %>
+                    <% if @selected && @selected.early_acceptance != nil %>
                         <div class="col-xs-2"><%= f.text_field :early_acceptance, :value => @selected.early_acceptance %></div>
                         <% else %>
                         <div class="col-xs-2"><%= f.text_field :early_acceptance, :placeholder => "True or False" %></div>
@@ -89,7 +89,7 @@
                 </div>
                 <div class="row">
                    <div class="col-xs-2">Ranking</div>
-                   <% if @selected %>
+                   <% if @selected && @selected.ranking != nil %>
                         <div class="col-xs-2"><%= f.number_field :ranking, :value => @selected.ranking %></div>
                         <% else %>
                         <div class="col-xs-2"><%= f.number_field :ranking, :placeholder => "Ranking" %></div>
