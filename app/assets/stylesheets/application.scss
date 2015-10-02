@@ -71,7 +71,7 @@
 }
 
 body {
-	font-famly: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	text-shadow: 1px, 1px  black;
 }
 
@@ -176,6 +176,28 @@ li {
 
 .login-center {
 	margin: 0 0 0 5%;
+}
+
+#select-college {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 1em;
+	text-shadow: 2px 2px 2px white;
+}
+
+.main-font {
+	font-family: 'Open Sans', sans-serif;
+	text-shadow: 2px 2px 2px white;
+	font-size: 1.1em;
+}
+
+.submit_submit {
+	font-size: 1.2em;
+	font-family: 'Open Sans', sans-serif;
+	color: #23527C;
+	border: 1px solid #2496D4;
+	border-radius: 5%;
+	background-color: white;
+	padding-top: 20px;
 }
 
 #forgot {
