@@ -49,7 +49,7 @@ class CheckListsController < ApplicationController
 private
 
 	def check_list_params
-		params.require(:check_list).permit(:deadline, :transcript, :sat, :act, :application, :tour_date, :early_acceptance, :ranking, :rec_letters, :user_id, :college_id)
+		params.require(:check_list).permit(:deadline, :transcript, :sat, :act, :application, :essay, :tour_date, :early_acceptance, :ranking, :rec_letters, :user_id, :college_id)
 	end
 
 private

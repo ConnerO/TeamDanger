@@ -23,26 +23,28 @@
  
             <% select_colleges_array.each do |sel_col_id| %>
                 <% if sel_col_id == college.id %>
-                    <% @selected = current_lists.find_by("college_id=?", sel_col_id) %>
+                    <% @selected = current_lists.where("college_id=?", sel_col_id).last %>
+                    <p>Id of check list is <%= @selected.id %></p>
+                    <p>Act? <%= @selected.act %></p>
                 <% end %>
             <% end %>
                 <%= form_for @check_list do |f| %>
                 <div class = "row">
                     <div class="col-xs-2">Deadline</div>
                     <% if @selected  %>
-                        <div class="col-xs-2"><%= f.text_field :deadline, :placeholder => @selected.deadline %></div>
+                        <div class="col-xs-2"><%= f.text_field :deadline, :value => @selected.deadline %></div>
                         <% else %>
                         <div class="col-xs-2"><%= f.text_field :deadline, :placeholder => "yyyy-mm-dd" %></div>
                     <% end %>
                     <div class="col-xs-2">Transcript?</div>
                     <% if @selected %>
-                        <div class="col-xs-2"><%= f.text_field :transcript, :placeholder => @selected.transcript %></div>
+                        <div class="col-xs-2"><%= f.text_field :transcript, :value => @selected.transcript %></div>
                         <% else %>
                         <div class="col-xs-2"><%= f.text_field :transcript, :placeholder => "True or False" %></div>
                         <% end %>
                     <div class="col-xs-2">Essay?</div>
                     <% if @selected %>
-                        <div class="col-xs-2"><%= f.text_field :essay, :placeholder => @selected.essay %></div>
+                        <div class="col-xs-2"><%= f.text_field :essay, :value => @selected.essay %></div>
                         <% else %>
                         <div class="col-xs-2"><%= f.text_field :essay, :placeholder => "True or False" %></div>
                     <% end %>
@@ -50,19 +52,19 @@
                 <div class="row">
                     <div class="col-xs-2">S.A.T.?</div>
                     <% if @selected %>
-                        <div class="col-xs-2"><%= f.text_field :sat, :placeholder => @selected.sat %></div>
+                        <div class="col-xs-2"><%= f.text_field :sat, :value => @selected.sat %></div>
                         <% else %>
                         <div class="col-xs-2"><%= f.text_field :sat, :placeholder => "True or False" %></div>
                     <% end %>
                     <div class="col-xs-2">A.C.T.?</div>
                     <% if @selected %>
-                        <div class="col-xs-2"><%= f.text_field :act, :placeholder => @selected.act %></div>
+                        <div class="col-xs-2"><%= f.text_field :act, :value => @selected.act %></div>
                         <% else %>
                         <div class="col-xs-2"><%= f.text_field :act, :placeholder => "True or False" %></div>
                     <% end %>                    
                     <div class="col-xs-2">Applicaiton?</div>
                     <% if @selected %>
-                        <div class="col-xs-2"><%= f.text_field :application, :placeholder => @selected.application %></div>
+                        <div class="col-xs-2"><%= f.text_field :application, :value => @selected.application %></div>
                         <% else %>
                         <div class="col-xs-2"><%= f.text_field :application, :placeholder => "True or False" %></div>
                     <% end %>
@@ -70,19 +72,19 @@
                 <div class="row">
                     <div class="col-xs-2">College Tour Date</div>
                     <% if @selected %>
-                        <div class="col-xs-2"><%= f.text_field :tour_date, :placeholder => "College Tour Date" %></div>
+                        <div class="col-xs-2"><%= f.text_field :tour_date, :value => @selected.tour_date %></div>
                         <% else %>
                         <div class="col-xs-2"><%= f.text_field :tour_date, :placeholder => "yyyy-mm-dd" %></div>
                     <% end %>
                     <div class="col-xs-2">Rec Letters?</div>
                     <% if @selected %>
-                        <div class="col-xs-2"><%= f.text_field :rec_letters, :placeholder => @selected.rec_letters %></div>
+                        <div class="col-xs-2"><%= f.text_field :rec_letters, :value => @selected.rec_letters %></div>
                         <% else %>
                         <div class="col-xs-2"><%= f.text_field :rec_letters, :placeholder => "True or False" %></div>
                     <% end %>
                     <div class="col-xs-2">Early Accept?</div>
                     <% if @selected %>
-                        <div class="col-xs-2"><%= f.text_field :early_acceptance, :placeholder => @selected.early_acceptance %></div>
+                        <div class="col-xs-2"><%= f.text_field :early_acceptance, :value => @selected.early_acceptance %></div>
                         <% else %>
                         <div class="col-xs-2"><%= f.text_field :early_acceptance, :placeholder => "True or False" %></div>
                     <% end %>
@@ -90,7 +92,7 @@
                 <div class="row">
                    <div class="col-xs-2">Ranking</div>
                    <% if @selected %>
-                        <div class="col-xs-2"><%= f.number_field :ranking, :placeholder => @selected.ranking %></div>
+                        <div class="col-xs-2"><%= f.number_field :ranking, :value => @selected.ranking %></div>
                         <% else %>
                         <div class="col-xs-2"><%= f.number_field :ranking, :placeholder => "Ranking" %></div>
                     <% end %>  
