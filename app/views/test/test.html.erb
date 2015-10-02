@@ -20,7 +20,7 @@
         <li>
         <% college_name = college.name %>
         <div class = "container <%= college_name %>">    
-            <h2>Checklist for <%= college_name %></h2>
+            <h2 class="headerers <%=college_name%>">Checklist for </h2>
             
             <% select_colleges_array = @check_lists.select(:college_id).distinct.pluck(:college_id) %>
  
@@ -117,20 +117,18 @@
     console.log("Tesssst");
     var linkFormArray = [];
     $(".hidden").hide();
-    $(".container").hide();
+    // $(".container").hide();
     document.getElementById("pop").selectedIndex = "-1";
     $("#pop").on('input',function(){
         // $(".popdown").hide();
         var link = document.createElement("a");
         var divy = document.createElement("div");
-        var inputText = document.createElement("input");
         var text = this.value;
         var textNode = document.createTextNode(text);
         link.appendChild(textNode);
         var mainDiv = document.getElementById("div1");
         mainDiv.appendChild(divy);
         divy.appendChild(link);
-        divy.appendChild(inputText);
        
         var textClass = "." + text;
         textClass = returnNoSpaces(textClass);
@@ -143,11 +141,8 @@
         $(link).attr("class",aTestClass);
 
         $(link).css("position","absolute");
-
-
-        $(inputText).val(text);
-        $(inputText).css("color","red");
-        $(inputText).hide();
+        var classLink = ".header" + aTestClass;
+        $(classLink).hide();
 
         var className = "." + aTestClass;
         $($(className)[1]).show();
@@ -155,13 +150,14 @@
         linkFormArray.push({link:$(link),form:$($(className)[1])});
         linkFormArray.forEach(function(value,index){
             var topy = value.form.position().top;
-            linkFormArray[index].link.css("top", topy + "px");
+            linkFormArray[index].link.css("top", topy -10 + "px");
             var lefty = value.form.position().left;
-            linkFormArray[index].link.css("left", 2.56 * lefty + "px");
+            linkFormArray[index].link.css("left", 6 * lefty + "px");
 
         });
     });
     classFinder();
+    headerFinder();
     function classRenamer(word)
     {
         var newString = "";
@@ -179,7 +175,18 @@
             var classValue = $(value).attr("class");
             var classAppend = classRenamer(classValue);
             $(value).attr("class","container " + classAppend);
-        }) 
+        }); 
+    }
+    function headerFinder()
+    {
+        var containerArray = $('.headerers');
+        containerArray.each(function(index,value){
+            var classValue = $(value).attr("class");
+            console.log(classValue);
+            var classAppend = classRenamer(classValue);
+            $(value).attr("class","header" + classAppend);
+        });
+        console.log(containerArray.length);
     }
 
     function returnNoSpaces(word)
