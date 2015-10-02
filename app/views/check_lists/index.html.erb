@@ -11,7 +11,7 @@
 				<% select_colleges_array = current_lists.select(:college_id).distinct.pluck(:college_id) %>
 				<% select_colleges_array = select_colleges_array.sort %>
 				<% select_colleges_array.each do |num_college| %>
-				<% current_list = current_lists.find_by("college_id=?", num_college) %>
+				<% current_list = current_lists.where("college_id=?", num_college).last %>
 				<li>		
 					<% college_id = current_list.college_id %>
 					<% college = @colleges.find(college_id) %>
