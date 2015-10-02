@@ -1,3 +1,25 @@
 // Place all the styles related to the Colleges controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#college_show {
+	background-image: url(http://s3.amazonaws.com/vnn-aws-sites/672/files/2013/07/Football.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	padding-bottom: 180px;
+  padding-top: 10px;
+}
+
+#college_title {
+	font-size: 36px;
+	color: blue;
+	padding-left: 50px;
+	text-shadow: 2px 2px 2px black;
+}
+
+#college_body {
+	color: white;
+	font-size: 24px;
+	padding-left: 50px;
+	text-shadow: 2px 2px 2px black;
+}

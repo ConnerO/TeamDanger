@@ -1,8 +1,8 @@
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 </head>
-<body>
-    <h1>Welcome <%= @current_user.first_name %></h1>
+<body id="test_new">
+    <h1 id="test_title">Welcome <%= @current_user.first_name %></h1>
     <% @check_list.user_id = @current_user.id %>
     <% current_lists = @check_lists.where(user_id: current_user.id) %>
     <div id="div1"></div>
