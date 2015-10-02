@@ -1,28 +1,37 @@
-<h1>Check Lists</h1>
-<p>Welcome, <%= current_user.first_name %> </p>
+<div id="check_index_body">
+<h1 id="check_index"><%= current_user.first_name %> <%= current_user.last_name %>'s Checklists</h1>
 <% if @check_lists == nil %>
 	<p>No check lists yet!</p>
 	<% else %>
-		<ul>
-			<% @check_lists.each do |check_list| %>
-			<li>		
-				<h1>Entry number: <%= check_list.id %></h1>
-				<p>Student ID: <%= check_list.user_id %></p>
-				<% college_id = check_list.college_id %>
-				<% college = @colleges.find(college_id) %>
-				<p>College: <%= college.name %></p>
-				<p>Deadline: <%= check_list.deadline %></p>
-				<p>Transcript sent? <%= check_list.transcript %></p>
-				<p>Essay done? <%= check_list.essay %></p>
-				<p>S.A.T. sent? <%= check_list.sat %></p>
-				<p>A.C.T. sent? <%= check_list.act %></p>
-				<p>Letters of recommendation done? <%= check_list.rec_letters %></p>
-				<p>Application sent? <%= check_list.application %></p>
-				<p>Going for Early Acceptance? <%= check_list.early_acceptance %></p>
-				<p>Tour Date: <%= check_list.tour_date %></p>
-				<p>Ranking: <%= check_list.ranking %></p>
-				<br>
-			</li>
-			<% end %>
-		</ul>
+	<div class="row">
+		<div class="col-md-4"></div>
+		<div id="check_index_list" class="col-md-4">
+			<ul>
+				<% current_lists = @check_lists.where(user_id: current_user.id) %>
+				<% select_colleges_array = current_lists.select(:college_id).distinct.pluck(:college_id) %>
+				<% select_colleges_array = select_colleges_array.sort %>
+				<% select_colleges_array.each do |num_college| %>
+				<% current_list = current_lists.where("college_id=?", num_college).last %>
+				<li>		
+					<% college_id = current_list.college_id %>
+					<% college = @colleges.find(college_id) %>
+					<p><span style="color:#337ab7"><%= college.name %></span></b></p>
+					<p>Application Deadline<br><%= current_list.deadline %></p>
+					<p>Transcript sent? <%= current_list.transcript %></p>
+					<p>Essay submitted? <%= current_list.essay %></p>
+					<p>S.A.T. Score sent? <%= current_list.sat %></p>
+					<p>A.C.T. Score sent? <%= current_list.act %></p>
+					<p>Rec Letters sent? <%= current_list.rec_letters %></p>
+					<p>Application sent? <%= current_list.application %></p>
+					<p>Early Acceptance? <%= current_list.early_acceptance %></p>
+					<p>Campus Tour Date<br><%= current_list.tour_date %></p>
+					<p>Ranking: <%= current_list.ranking %></p>
+					<br>
+				</li>
+				<% end %>	
+			</ul>
+		</div>
+		<div class="col-md-4"></div>
+	</div>
 <% end %>
+</div>

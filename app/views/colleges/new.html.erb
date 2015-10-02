@@ -1,7 +1,7 @@
 <% if @college.errors.present? %>
 	<p><%= @college.errors.full_messages.first %></p>
 <% end %>
-<h1>Create New University</h1>
+<h1>Add a College</h1>
 <br>
 
 <div class = "container">
@@ -31,7 +31,7 @@
 		<div class="col-xs-2"><%= f.text_field :scholarship, :placeholder => "True or False" %></div>
 	</div>
 	<div class="row">
-		<div class="col-xs-2"><%= f.submit "Submit" %></div>
+		<div class="col-xs-2"><%= f.submit "Submit", :class => "submit_submit"%></div>
 	</div>
 <% end %>
 </div>
