@@ -162,8 +162,22 @@ li {
 	padding: 2% 0;
 }
 
+.add-college {
+	background-image: url(http://zapnews.tk/wp-content/uploads/2015/04/wood-background.jpg);
+	background-size: cover;
+	background-repeat: repeat-x;
+	min-height: 622px;
+	padding-top: 10px;
+	text-shadow: 2px 2px 2px rgba(255, 255, 255, 0.4);
+}
+
 #new-sign-up, #new-login {
 	background-color: rgba(133, 192, 232, .6);
+	min-height: 622px;
+}
+
+.check-image {
+	max-width: 600px;
 }
 
 #login {
@@ -178,15 +192,23 @@ li {
 	margin: 0 0 0 5%;
 }
 
+.login-form {
+	margin-left: 35%;
+}
+
+.password-form {
+	margin-left: 18%;
+}
+
 #select-college {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 1em;
-	text-shadow: 2px 2px 2px white;
+	text-shadow: 2px 2px 2px rgba(255, 255, 255, 0.4);
 }
 
 .main-font {
 	font-family: 'Open Sans', sans-serif;
-	text-shadow: 2px 2px 2px white;
+	text-shadow: 2px 2px 2px rgba(255, 255, 255, 0.4);
 	font-size: 1.1em;
 }
 
@@ -197,7 +219,7 @@ li {
 	border: 1px solid #2496D4;
 	border-radius: 5%;
 	background-color: white;
-	padding-top: 20px;
+	
 }
 
 #forgot {
