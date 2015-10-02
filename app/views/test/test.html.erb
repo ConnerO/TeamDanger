@@ -24,17 +24,15 @@
             <% select_colleges_array.each do |sel_col_id| %>
                 <% if sel_col_id == college.id %>
                     <% @selected = current_lists.where("college_id=?", sel_col_id).last %>
-                    <p>Id of check list is <%= @selected.id %></p>
-                    <p>Act? <%= @selected.act %></p>
                 <% end %>
             <% end %>
                 <%= form_for @check_list do |f| %>
                 <div class = "row">
                     <div class="col-xs-2">Deadline</div>
                     <% if @selected  %>
-                        <div class="col-xs-2"><%= f.text_field :deadline, :value => @selected.deadline %></div>
+                        <div class="col-xs-2"><%= f.date_field :deadline, :value => @selected.deadline %></div>
                         <% else %>
-                        <div class="col-xs-2"><%= f.text_field :deadline, :placeholder => "yyyy-mm-dd" %></div>
+                        <div class="col-xs-2"><%= f.date_field :deadline, :placeholder => "yyyy-mm-dd" %></div>
                     <% end %>
                     <div class="col-xs-2">Transcript?</div>
                     <% if @selected %>
@@ -72,9 +70,9 @@
                 <div class="row">
                     <div class="col-xs-2">College Tour Date</div>
                     <% if @selected %>
-                        <div class="col-xs-2"><%= f.text_field :tour_date, :value => @selected.tour_date %></div>
+                        <div class="col-xs-2"><%= f.date_field :tour_date, :value => @selected.tour_date %></div>
                         <% else %>
-                        <div class="col-xs-2"><%= f.text_field :tour_date, :placeholder => "yyyy-mm-dd" %></div>
+                        <div class="col-xs-2"><%= f.date_field :tour_date, :placeholder => "yyyy-mm-dd" %></div>
                     <% end %>
                     <div class="col-xs-2">Rec Letters?</div>
                     <% if @selected %>
