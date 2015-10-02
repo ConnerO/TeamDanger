@@ -20,7 +20,11 @@
         <li>
         <% college_name = college.name %>
         <div class = "container <%= college_name %>">    
+<<<<<<< HEAD
             <h2 class="headerers <%=college_name%>">Checklist for </h2>
+=======
+            <h2>Checklist for </h2>
+>>>>>>> c53b657ae501a8d4e84a81ff5c5414684604538e
             
             <% select_colleges_array = @check_lists.select(:college_id).distinct.pluck(:college_id) %>
  
@@ -139,20 +143,8 @@
 
         $(link).attr("href",hrefValue);
         $(link).attr("class",aTestClass);
-
+        $(link).css("font-size","28px");
         $(link).css("position","absolute");
-        var classLink = ".header" + aTestClass;
-        $(classLink).hide();
-
-        var className = "." + aTestClass;
-        $($(className)[1]).show();
-        
-        linkFormArray.push({link:$(link),form:$($(className)[1])});
-        linkFormArray.forEach(function(value,index){
-            var topy = value.form.position().top;
-            linkFormArray[index].link.css("top", topy -10 + "px");
-            var lefty = value.form.position().left;
-            linkFormArray[index].link.css("left", 6 * lefty + "px");
 
         });
     });
