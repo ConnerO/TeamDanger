@@ -1,10 +1,10 @@
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 </head>
-<body id="test_new">
+<div id="test_new">
     <h1 id="test_title">Welcome <%= @current_user.first_name %></h1>
     <div id="select-college">
-        <p>Select a College from the list</p>
+        <h4>Select a College from the list</h4>
     </div>
     <% @check_list.user_id = @current_user.id %>
     <% current_lists = @check_lists.where(user_id: current_user.id) %>
@@ -20,7 +20,7 @@
         <li>
         <% college_name = college.name %>
         <div class = "container <%= college_name %>">    
-            <h2 class="headerers <%=college_name%>">Checklist for </h2>
+            <h2 class="headerers <%=college_name%>">Checklist | </h2>
             
             <% select_colleges_array = @check_lists.select(:college_id).distinct.pluck(:college_id) %>
  
@@ -30,6 +30,7 @@
                 <% end %>
             <% end %>
                 <%= form_for @check_list, html: {class: "nifty_form"} do |f| %>
+                
                 <div class = "row">
                     <div class="col-xs-2">Application Deadline</div>
                     <% if @selected  %>
@@ -199,5 +200,5 @@
     }
 
    </script>
-</body>
+</div>
 

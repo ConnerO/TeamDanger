@@ -4,10 +4,10 @@
 
 #check_show {
 	background-image: url(http://www.biologycorner.com/resources/blog_images/study_hall_vader.jpg);
-	background-size: cover;
 	background-repeat: no-repeat;
+	background-size: 100%;
 	padding-top: 20px;
-  padding-bottom: 10px;
+	min-height: 672px;
 }
 
 #check_title {
@@ -21,7 +21,7 @@
 #check_body {
 	color: white;
 	font-size: 24px;
-	margin-left: 410px;
+	margin-left: 40%;
 	text-shadow: 2px 2px 2px black;
 }
 

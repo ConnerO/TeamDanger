@@ -15,7 +15,8 @@
 				<li>		
 					<% college_id = current_list.college_id %>
 					<% college = @colleges.find(college_id) %>
-					<p><span style="color:#337ab7"><%= college.name %></span></b></p>
+					<a href="/colleges/<%= college_id %>"><span style="color:#337ab7"><%= college.name %></span></a>
+					<br>
 					<p>Application Deadline<br><%= current_list.deadline %></p>
 					<p>Transcript sent? <%= current_list.transcript %></p>
 					<p>Essay submitted? <%= current_list.essay %></p>

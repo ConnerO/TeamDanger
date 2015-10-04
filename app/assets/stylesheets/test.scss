@@ -1,7 +1,10 @@
 #test_new {
-	background-image: url(http://zapnews.tk/wp-content/uploads/2015/04/wood-background.jpg);
-	background-size: cover;
-	background-repeat: no-repeat;
+	background: url(http://zapnews.tk/wp-content/uploads/2015/04/wood-background.jpg) top right;
+	background-attachment:fixed;
+	background-size: 100%;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	min-height: 672px;
 }
 
 #test_title {
