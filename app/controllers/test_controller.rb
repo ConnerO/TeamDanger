@@ -2,20 +2,20 @@ class TestController < ApplicationController
     # skip_before_action :verify_authenticity_token
     def test
         @colleges = College.all
-        
         @check_list = CheckList.new
         @check_lists = CheckList.all
         @selected = false
         @up_check = false
+        @user_list_array = []
         current_user
     end
 
-    def create
-        @check_list = CheckList.new(check_list_params)
-        if @check_list.save
-            redirect_to @check_list
-        end
-    end
+    # def create
+    #     @check_list = CheckList.new(check_list_params)
+    #     if @check_list.save
+    #         redirect_to @check_list
+    #     end
+    # end
 
     def whatup
         @college = College.find_by(name: params[:name])

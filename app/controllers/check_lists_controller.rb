@@ -22,9 +22,13 @@ class CheckListsController < ApplicationController
 
 	def create
 		@check_list = CheckList.new(check_list_params)
+		if @check_list.deadline
 			if @check_list.save
 				redirect_to @check_list
 			end
+		else
+			redirect_to '/test'
+		end
 	end
 
 	def edit

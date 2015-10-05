@@ -2,8 +2,7 @@
 <h1 id="check_title">Successfully added your check list to our database</h1>
 <br>
 	<div id="check_body">
-		<p>Entry number: <%= @check_list.id %></p>
-		<p>Student ID: <%= @check_list.user_id %></p>
+		<p>Applicant: <%= @current_user.first_name %> <%= @current_user.last_name %></p>
 		<% college_id = Integer(@check_list.college_id) %>
 		<% college = @colleges.find(college_id) %>
 		<p>College: <%= college.name %></p>
